@@ -1,6 +1,6 @@
 ﻿using IQueueData;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Linq;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace IQueueAPI.Controllers
@@ -26,9 +26,9 @@ namespace IQueueAPI.Controllers
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public User Get(Guid id)
         {
-            return "value";
+            return _unitOfWork.Context.Users.FirstOrDefault(x => x.Id == id);
         }
 
         // POST api/<UserController>
