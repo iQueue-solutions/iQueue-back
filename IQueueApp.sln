@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IQueueAPI", "IQueueAPI\IQueueAPI.csproj", "{42F3A64F-B22E-4348-AF94-A5FD8760D899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IQueueData", "IQueueData\IQueueData.csproj", "{39DB49D8-D636-466C-A3E3-94D9B6170C88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42F3A64F-B22E-4348-AF94-A5FD8760D899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F3A64F-B22E-4348-AF94-A5FD8760D899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F3A64F-B22E-4348-AF94-A5FD8760D899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F3A64F-B22E-4348-AF94-A5FD8760D899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39DB49D8-D636-466C-A3E3-94D9B6170C88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39DB49D8-D636-466C-A3E3-94D9B6170C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39DB49D8-D636-466C-A3E3-94D9B6170C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39DB49D8-D636-466C-A3E3-94D9B6170C88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF601642-91AE-4C13-AFF5-E85DC15C6117}
+	EndGlobalSection
+EndGlobal
