@@ -1,37 +1,37 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IQueueData.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace IQueueData
 {
     public class QueueDbContext : DbContext
     {
+        public DbSet<Group> Groups { get; set; }
 
-        public virtual DbSet<User> Users { get; set; }
+        public DbSet<Queue> Queues { get; set; }
 
+        public DbSet<QueueRecord> QueueRecords { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>();
-        
-            base.OnModelCreating(modelBuilder);
-        }
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<UserGroup> UserGroups { get; set; }
 
         public QueueDbContext(DbContextOptions<QueueDbContext> options) : base(options)
         {
         }
 
-        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        // {
-        // Data Source=SQL8001.site4now.net;Initial Catalog=db_a8e4e7_iqueue001db;User Id=db_a8e4e7_iqueue001db_admin;Password=Kf6anz@nCwZZvwR
-        // Server=(localdb)\mssqllocaldb;Database=Queue001Db;Trusted_Connection=True;
-        // optionsBuilder.UseSqlServer(@"");
-        // }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        { 
+            modelBuilder.Entity<Group>();
 
+            modelBuilder.Entity<QueueRecord>();
 
+            modelBuilder.Entity<Queue>();
+
+            modelBuilder.Entity<User>();
+
+            modelBuilder.Entity<UserGroup>();
+        
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
