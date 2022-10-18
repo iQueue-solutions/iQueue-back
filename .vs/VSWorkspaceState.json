@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.idea",
+    "\\IQueueAPI",
+    "\\IQueueAPI\\Controllers",
+    "\\IQueueAPI\\Properties",
+    "\\IQueueData",
+    "\\IQueueData\\Migrations"
+  ],
+  "SelectedNode": "\\IQueueAPI\\Controllers\\UserController.cs",
+  "PreviewInSolutionExplorer": false
+}

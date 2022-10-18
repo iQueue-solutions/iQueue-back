@@ -35,18 +35,20 @@ namespace IQueueAPI.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
+            _unitOfWork.Context.Users.Add(value);
         }
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
-        {
+        {            
         }
 
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            _unitOfWork.Context.Users.Remove(id);
         }
     }
 }
