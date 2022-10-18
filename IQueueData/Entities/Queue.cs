@@ -16,10 +16,19 @@ namespace IQueueData.Entities
         /// </summary>
         public DateTime CreateTime { get; set; }
 
+        /// <summary>
+        /// Queue open status.
+        /// </summary>
         public bool IsOpen { get; set; }
-        
+
+        /// <summary>
+        /// Maximum users in queue.
+        /// </summary>
         public int MaxRecordNumber { get; set; }
 
+        /// <summary>
+        /// List of records of queue changes.
+        /// </summary>
         public IList<QueueRecord> QueueRecords { get; set; } = new List<QueueRecord>();
     }
 }
