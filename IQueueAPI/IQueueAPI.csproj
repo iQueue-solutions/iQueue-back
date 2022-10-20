@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\IQueueBL\IQueueBL.csproj" />
       <ProjectReference Include="..\IQueueData\IQueueData.csproj" />
     </ItemGroup>
 

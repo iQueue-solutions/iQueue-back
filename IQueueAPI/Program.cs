@@ -1,5 +1,8 @@
+using AutoMapper;
+using IQueueBL.AutoMapper;
 using IQueueData;
 using IQueueData.Interfaces;
+using IQueueData.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +17,15 @@ builder.Services.AddDbContext<QueueDbContext>(options => options.UseSqlServer(co
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new AutoMapperProfile());
+});
+            
+builder.Services.AddSingleton(mapperConfig.CreateMapper());
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+// builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
