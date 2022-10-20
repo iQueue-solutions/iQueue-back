@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\IQueueData",
+    "\\IQueueData\\Entities",
+    "\\IQueueData\\Repositories"
   ],
-  "SelectedNode": "\\IQueueApp.sln",
+  "SelectedNode": "\\IQueueData\\Repositories\\UserRepository.cs",
   "PreviewInSolutionExplorer": false
 }
