@@ -1,4 +1,6 @@
-﻿using IQueueData.Entities;
+﻿using System.Diagnostics;
+using IQueueBL.Models;
+using IQueueData.Entities;
 using IQueueData.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,19 +12,13 @@ namespace IQueueAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-        public UserController(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
-
+        
 
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<User> Get()
+        public async Task<ActionResult<IEnumerable<UserModel>>> Get()
         {
-            return new List<User>();
+            return Ok(new List<UserModel>());
         }
 
         // GET api/<UserController>/5

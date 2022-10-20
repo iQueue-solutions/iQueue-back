@@ -26,17 +26,7 @@ public class RecordModel
     public Guid QueueId { get; set; }
 
     /// <summary>
-    /// Created or changed queue.
-    /// </summary>
-    public QueueModel? Queue  { get; set; }
-
-    /// <summary>
     /// Id of entered used.
     /// </summary>
     public Guid UserId { get; set; }
-
-    /// <summary>
-    /// Entered used.
-    /// </summary>
-    public UserModel? User { get; set; }
 }

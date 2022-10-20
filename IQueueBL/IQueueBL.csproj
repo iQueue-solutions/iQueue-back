@@ -11,4 +11,12 @@
       <Folder Include="Services" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\IQueueData\IQueueData.csproj" />
+    </ItemGroup>
+
 </Project>

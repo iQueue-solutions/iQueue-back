@@ -13,7 +13,7 @@ public class QueueModel
     /// <summary>
     /// Admin User of Queue.
     /// </summary>
-    public UserModel? Admin { get; set; }
+    public Guid AdminId { get; set; }
 
     /// <summary>
     /// Time of Queue Creation.
