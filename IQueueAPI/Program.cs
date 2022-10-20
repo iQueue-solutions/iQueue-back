@@ -1,4 +1,5 @@
 using IQueueData;
+using IQueueData.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
