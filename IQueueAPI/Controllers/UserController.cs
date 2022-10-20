@@ -1,5 +1,5 @@
-﻿using IQueueData;
-using IQueueData.Entities;
+﻿using IQueueData.Entities;
+using IQueueData.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,7 +22,7 @@ namespace IQueueAPI.Controllers
         [HttpGet]
         public IEnumerable<User> Get()
         {
-            return _unitOfWork.Context.Users;
+            return new List<User>();
         }
 
         // GET api/<UserController>/5
