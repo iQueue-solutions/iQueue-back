@@ -31,8 +31,7 @@ namespace IQueueData.Repositories
         public async Task DeleteByIdAsync(Guid id)
         {
             var entity = await _queueDbContext.QueueRecords.FirstOrDefaultAsync(x => x.Id.Equals(id));
-            _queueDbContext.QueueRecords.Remove(entity);
-            await _queueDbContext.SaveChangesAsync();
+            if (entity != null) _queueDbContext.QueueRecords.Remove(entity);
         }
 
         public async Task<IEnumerable<QueueRecord>> GetAllAsync()
@@ -51,7 +50,6 @@ namespace IQueueData.Repositories
         public void Update(QueueRecord entity)
         {
             _queueDbContext.QueueRecords.Update(entity);
-            _queueDbContext.SaveChanges();
         }
     }
 }

@@ -31,14 +31,12 @@ namespace IQueueData.Repositories
         public async Task DeleteByIdAsync(Guid id)
         {
             var entity = await _queueDbContext.UserGroups.FirstOrDefaultAsync(x => x.Id.Equals(id));
-            _queueDbContext.UserGroups.Remove(entity);
-            await _queueDbContext.SaveChangesAsync();
+            if (entity != null) _queueDbContext.UserGroups.Remove(entity);
         }
 
         public async Task<IEnumerable<UserGroup>> GetAllAsync()
         {
-            var result = await _queueDbContext.UserGroups.ToListAsync();
-            return result;
+            return await _queueDbContext.UserGroups.ToListAsync();
         }
 
 

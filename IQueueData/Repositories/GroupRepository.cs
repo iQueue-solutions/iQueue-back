@@ -31,8 +31,7 @@ namespace IQueueData.Repositories
         public async Task DeleteByIdAsync(Guid id)
         {
             var entity = await _queueDbContext.Groups.FirstOrDefaultAsync(x => x.Id.Equals(id));
-            _queueDbContext.Groups.Remove(entity);
-            await _queueDbContext.SaveChangesAsync();
+            if (entity != null) _queueDbContext.Groups.Remove(entity);
         }
 
         public async Task<IEnumerable<Group>> GetAllAsync()
@@ -56,17 +55,15 @@ namespace IQueueData.Repositories
 
         public async Task<Group> GetByIdWithDetailsAsync(Guid id)
         {
-            return await (
+            return await 
                 _queueDbContext.Groups
                 .Include(x => x.UserGroups)                
-                .FirstOrDefaultAsync(x => x.Id.Equals(id))
-                );
+                .FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 
         public void Update(Group entity)
         {
             _queueDbContext.Groups.Update(entity);
-            _queueDbContext.SaveChanges();
         }
     }
 }
