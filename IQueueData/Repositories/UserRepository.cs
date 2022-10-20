@@ -20,18 +20,20 @@ namespace IQueueData.Repositories
 
         public void Delete(User entity)
         {
-            throw new NotImplementedException();
+            _queueDbContext.Users.Remove(entity);
         }
 
-        public Task DeleteByIdAsync(Guid id)
+        public async Task DeleteByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await _queueDbContext.Users.FirstOrDefaultAsync(x => x.Id.Equals(id));
+            _queueDbContext.Users.Remove(entity);
+            await _queueDbContext.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<User>> GetAllAsync()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
-            // without Include (read about Include)
-            throw new NotImplementedException();
+            var result = await _queueDbContext.Users.ToListAsync();
+            return result;
         }
 
         public Task<IEnumerable<User>> GetAllWithDetailsAsync()
@@ -48,14 +50,20 @@ namespace IQueueData.Repositories
             return await _queueDbContext.Users.FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 
-        public Task<User> GetByIdWithDetailsAsync(Guid id)
+        public async Task<User> GetByIdWithDetailsAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await (
+                _queueDbContext.Users
+                .Include(x => x.UserGroups)
+                .Include(x => x.QueueRecords).
+                FirstOrDefaultAsync(x => x.Id.Equals(id))
+                );
         }
 
         public void Update(User entity)
         {
-            throw new NotImplementedException();
+            _queueDbContext.Users.Update(entity);
+            _queueDbContext.SaveChanges();
         }
     }
 }
