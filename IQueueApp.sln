@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IQueueAPI", "IQueueAPI\IQue
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IQueueData", "IQueueData\IQueueData.csproj", "{39DB49D8-D636-466C-A3E3-94D9B6170C88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IQueueBL", "IQueueBL\IQueueBL.csproj", "{2082BC18-A4A5-4129-80E9-1BD0A8714459}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{39DB49D8-D636-466C-A3E3-94D9B6170C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39DB49D8-D636-466C-A3E3-94D9B6170C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39DB49D8-D636-466C-A3E3-94D9B6170C88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2082BC18-A4A5-4129-80E9-1BD0A8714459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2082BC18-A4A5-4129-80E9-1BD0A8714459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2082BC18-A4A5-4129-80E9-1BD0A8714459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2082BC18-A4A5-4129-80E9-1BD0A8714459}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

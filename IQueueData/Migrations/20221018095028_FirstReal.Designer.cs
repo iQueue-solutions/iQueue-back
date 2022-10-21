@@ -4,6 +4,7 @@ using IQueueData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IQueueData.Migrations
 {
     [DbContext(typeof(QueueDbContext))]
-    partial class QueueDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221018095028_FirstReal")]
+    partial class FirstReal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,10 +53,12 @@ namespace IQueueData.Migrations
                     b.Property<bool>("IsOpen")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("MaxRecordNumber")
+                    b.Property<int>("MaxRecordNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdminId");
 
                     b.ToTable("Queues");
                 });
@@ -125,6 +129,15 @@ namespace IQueueData.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserGroups");
+                });
+
+            modelBuilder.Entity("IQueueData.Entities.Queue", b =>
+                {
+                    b.HasOne("IQueueData.Entities.User", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId");
+
+                    b.Navigation("Admin");
                 });
 
             modelBuilder.Entity("IQueueData.Entities.QueueRecord", b =>
