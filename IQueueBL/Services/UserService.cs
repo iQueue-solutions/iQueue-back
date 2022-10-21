@@ -21,13 +21,13 @@ public class UserService : IUserService
     public async Task<IEnumerable<UserModel>> GetAllAsync()
     {
         var users = await _unitOfWork.UserRepository.GetAllWithDetailsAsync();
-
         return _mapper.Map<IEnumerable<UserModel>>(users);
     }
 
-    public Task<UserModel> GetByIdAsync(Guid id)
+    public async Task<UserModel> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(id);
+        return _mapper.Map<UserModel>(user);
     }
 
     public async Task AddAsync(UserModel model)
@@ -40,14 +40,27 @@ public class UserService : IUserService
         await _unitOfWork.SaveAsync();
     }
 
-    public Task UpdateAsync(UserModel model)
+    public async Task UpdateAsync(UserModel model)
     {
-        throw new NotImplementedException();
+        ValidateUser(model);
+
+        var user = _mapper.Map<User>(model);
+
+        _unitOfWork.UserRepository.Update(user);
+        await _unitOfWork.SaveAsync();
+
     }
 
-    public Task DeleteAsync(Guid modelId)
+    public async Task DeleteAsync(Guid modelId)    
     {
-        throw new NotImplementedException();
+        var model = _mapper.Map<UserModel>(this.GetByIdAsync(modelId));
+        ValidateUser(model);
+        var user = _mapper.Map<User>(model);
+
+        await _unitOfWork.UserRepository.DeleteByIdAsync(user.Id);
+        await _unitOfWork.SaveAsync();
+
+
     }
 
     private void ValidateUser(UserModel model)
@@ -55,6 +68,18 @@ public class UserService : IUserService
         if (string.IsNullOrEmpty(model.Email))
         {
             throw new QueueException("Email can't be null value.");
+        }
+        if (string.IsNullOrEmpty(model.FirstName))
+        {
+            throw new QueueException("FirstName can't be null value.");
+        }
+        if (string.IsNullOrEmpty(model.LastName))
+        {
+            throw new QueueException("LastName can't be null value.");
+        }
+        if (string.IsNullOrEmpty(model.Id.ToString()))
+        {
+            throw new QueueException("Id can't be null value.");
         }
     }
 }
