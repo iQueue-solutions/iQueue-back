@@ -57,7 +57,7 @@ public class UserService : IUserService
         ValidateUser(model);
         var user = _mapper.Map<User>(model);
 
-        _unitOfWork.UserRepository.Delete(user);
+        await _unitOfWork.UserRepository.DeleteByIdAsync(user.Id);
         await _unitOfWork.SaveAsync();
 
 

@@ -39,7 +39,7 @@ namespace IQueueBL.Services
 
             var queue = _mapper.Map<Queue>(model);
 
-            _unitOfWork.QueueRepository.Delete(queue);
+            await _unitOfWork.QueueRepository.DeleteByIdAsync(queue.Id);
             await _unitOfWork.SaveAsync();
 
         }
