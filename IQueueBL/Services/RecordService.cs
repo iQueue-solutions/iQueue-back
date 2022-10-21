@@ -12,7 +12,7 @@ using IQueueData.Interfaces;
 
 namespace IQueueBL.Services
 {
-    internal class RecordService : IRecordService
+    public class RecordService : IRecordService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
