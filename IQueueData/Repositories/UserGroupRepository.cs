@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IQueueData.Entities;
+﻿using IQueueData.Entities;
 using IQueueData.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -38,18 +33,15 @@ namespace IQueueData.Repositories
         {
             return await _queueDbContext.UserGroups.ToListAsync();
         }
-
-
+        
         public async Task<UserGroup> GetByIdAsync(Guid id)
         {
             return await _queueDbContext.UserGroups.FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
-
-
+        
         public void Update(UserGroup entity)
         {
             _queueDbContext.UserGroups.Update(entity);
-            _queueDbContext.SaveChanges();
         }
     }
 }

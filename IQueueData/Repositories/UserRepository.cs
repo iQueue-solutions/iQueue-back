@@ -27,13 +27,11 @@ namespace IQueueData.Repositories
         {
             var entity = await _queueDbContext.Users.FirstOrDefaultAsync(x => x.Id.Equals(id));
             _queueDbContext.Users.Remove(entity);
-            await _queueDbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()
         {
-            var result = await _queueDbContext.Users.ToListAsync();
-            return result;
+            return await _queueDbContext.Users.ToListAsync();
         }
 
         public Task<IEnumerable<User>> GetAllWithDetailsAsync()
@@ -41,8 +39,7 @@ namespace IQueueData.Repositories
             return Task.FromResult<IEnumerable<User>>(
                 _queueDbContext.Users
                 .Include(x => x.UserGroups)
-                .Include(x => x.QueueRecords)
-                );
+                .Include(x => x.QueueRecords));
         }
 
         public async Task<User> GetByIdAsync(Guid id)
@@ -52,18 +49,16 @@ namespace IQueueData.Repositories
 
         public async Task<User> GetByIdWithDetailsAsync(Guid id)
         {
-            return await (
+            return await 
                 _queueDbContext.Users
                 .Include(x => x.UserGroups)
                 .Include(x => x.QueueRecords).
-                FirstOrDefaultAsync(x => x.Id.Equals(id))
-                );
+                FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 
         public void Update(User entity)
         {
             _queueDbContext.Users.Update(entity);
-            _queueDbContext.SaveChanges();
         }
     }
 }
