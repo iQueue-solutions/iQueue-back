@@ -26,7 +26,7 @@ public class UserService : IUserService
 
     public async Task<UserModel> GetByIdAsync(Guid id)
     {
-        var user = await _unitOfWork.UserRepository.GetByIdAsync(id);
+        var user = await _unitOfWork.UserRepository.GetByIdWithDetailsAsync(id);
         return _mapper.Map<UserModel>(user);
     }
 
@@ -53,14 +53,13 @@ public class UserService : IUserService
 
     public async Task DeleteAsync(Guid modelId)    
     {
-        var model = _mapper.Map<UserModel>(this.GetByIdAsync(modelId));
-        ValidateUser(model);
-        var user = _mapper.Map<User>(model);
-
-        await _unitOfWork.UserRepository.DeleteByIdAsync(user.Id);
+        if (await GetByIdAsync(modelId) == null)
+        {
+            throw new QueueException("User wasn't found");
+        }
+        
+        await _unitOfWork.UserRepository.DeleteByIdAsync(modelId);
         await _unitOfWork.SaveAsync();
-
-
     }
 
     private void ValidateUser(UserModel model)

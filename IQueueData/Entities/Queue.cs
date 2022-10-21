@@ -9,7 +9,7 @@ namespace IQueueData.Entities
         /// <summary>
         /// Admin User of Queue.
         /// </summary>
-        public User? Admin { get; set; }
+        public Guid? AdminId { get; set; }
 
         /// <summary>
         /// Time of Queue Creation.
@@ -24,7 +24,7 @@ namespace IQueueData.Entities
         /// <summary>
         /// Maximum users in queue.
         /// </summary>
-        public int MaxRecordNumber { get; set; }
+        public int? MaxRecordNumber { get; set; }
 
         /// <summary>
         /// List of records of queue changes.

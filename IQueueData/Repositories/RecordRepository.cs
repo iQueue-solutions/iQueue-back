@@ -25,8 +25,13 @@ namespace IQueueData.Repositories
 
         public async Task DeleteByIdAsync(Guid id)
         {
-            var entity = await _queueDbContext.QueueRecords.FirstOrDefaultAsync(x => x.Id.Equals(id));
-            if (entity != null) _queueDbContext.QueueRecords.Remove(entity);
+            var entity = await _queueDbContext.QueueRecords
+                .FirstOrDefaultAsync(x => x.Id.Equals(id));
+            
+           await _queueDbContext.Users.Where(x => x.Id == entity!.UserId).LoadAsync();;
+           await _queueDbContext.Queues.Where(x => x.Id == entity!.QueueId).LoadAsync();;
+            
+           if (entity != null) _queueDbContext.QueueRecords.Remove(entity);
         }
 
         public async Task<IEnumerable<QueueRecord>> GetAllAsync()
@@ -38,7 +43,7 @@ namespace IQueueData.Repositories
 
         public async Task<QueueRecord> GetByIdAsync(Guid id)
         {
-            return await _queueDbContext.QueueRecords.FirstOrDefaultAsync(x => x.Id.Equals(id));
+            return (await _queueDbContext.QueueRecords.FirstOrDefaultAsync(x => x.Id.Equals(id)))!;
         }
        
 

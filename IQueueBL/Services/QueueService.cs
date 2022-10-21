@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
@@ -22,6 +17,7 @@ namespace IQueueBL.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
+        
         public async Task AddAsync(QueueModel model)
         {
             ValidateQueue(model);
@@ -34,12 +30,12 @@ namespace IQueueBL.Services
 
         public async Task DeleteAsync(Guid modelId)
         {
-            var model = _mapper.Map<QueueModel>(this.GetByIdAsync(modelId));
-            ValidateQueue(model);            
+            if (await GetByIdAsync(modelId) == null)
+            {
+                throw new QueueException("User wasn't found");
+            }
 
-            var queue = _mapper.Map<Queue>(model);
-
-            await _unitOfWork.QueueRepository.DeleteByIdAsync(queue.Id);
+            await _unitOfWork.QueueRepository.DeleteByIdAsync(modelId);
             await _unitOfWork.SaveAsync();
 
         }
@@ -49,10 +45,16 @@ namespace IQueueBL.Services
             var queues = await _unitOfWork.QueueRepository.GetAllWithDetailsAsync();
             return _mapper.Map<IEnumerable<QueueModel>>(queues);
         }
+        
+        public async Task<IEnumerable<QueueModel>> GetAllWithParticipantsAsync()
+        {
+            var queues = await _unitOfWork.QueueRepository.GetAllWithDetailsAsync();
+            return _mapper.Map<IEnumerable<QueueModel>>(queues);
+        } 
 
         public async Task<QueueModel> GetByIdAsync(Guid id)
         {
-            var queue = await _unitOfWork.QueueRepository.GetByIdAsync(id);
+            var queue = await _unitOfWork.QueueRepository.GetByIdWithDetailsAsync(id);
             return _mapper.Map<QueueModel>(queue);
         }
 

@@ -28,5 +28,5 @@ public class UserModel
     /// <summary>
     /// List of records of queue changes.
     /// </summary>
-    public IList<Guid> RecordsIds { get; set; }
+    public IList<Guid>? RecordsIds { get; set; }
 }

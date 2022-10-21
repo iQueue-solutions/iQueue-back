@@ -18,15 +18,19 @@ namespace IQueueData.Repositories
             await _queueDbContext.Users.AddAsync(entity);
         }
 
-        public void Delete(User entity)
+        public async void Delete(User entity)
         {
+            await _queueDbContext.Queues.Where(x => x.AdminId == entity.Id).LoadAsync();
+            
             _queueDbContext.Users.Remove(entity);
         }
 
         public async Task DeleteByIdAsync(Guid id)
         {
+            await _queueDbContext.Queues.Where(x => x.AdminId == id).LoadAsync();
+            
             var entity = await _queueDbContext.Users.FirstOrDefaultAsync(x => x.Id.Equals(id));
-            _queueDbContext.Users.Remove(entity);
+            if (entity != null) _queueDbContext.Users.Remove(entity);
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()
