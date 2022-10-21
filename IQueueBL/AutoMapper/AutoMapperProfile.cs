@@ -9,8 +9,7 @@ public class AutoMapperProfile : Profile
 {
     public AutoMapperProfile()
     {
-        CreateMap<Queue, QueueModel>()
-            .ForMember(qm => qm.RecordsIds, q => q.MapFrom(x => x.QueueRecords.Select(r => r.Id)));
+        CreateMap<Queue, QueueModel>();
 
         CreateMap<QueueModel, Queue>();
 

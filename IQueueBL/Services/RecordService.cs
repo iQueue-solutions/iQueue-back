@@ -59,8 +59,9 @@ namespace IQueueBL.Services
             _unitOfWork.RecordRepository.Update(record);
             await _unitOfWork.SaveAsync();
         }
-        
-        private void ValidateRecord(RecordModel model)
+
+
+        private async void ValidateRecord(RecordModel model)
         {
             if (string.IsNullOrEmpty(model.QueueId.ToString()))
             {
@@ -82,7 +83,30 @@ namespace IQueueBL.Services
             {
                 throw new QueueException("Id can't be null value.");
             }
+            
+            var queue = await _unitOfWork.QueueRepository.GetByIdWithDetailsAsync(model.QueueId);
+
+            if (model.Index <= 0)
+            {
+                throw new QueueException("Index must be a positive value."); 
+            }
+
+            if (model.LabNumber <= 0)
+            {
+                throw new QueueException("Task must be a positive value.");
+            }
+            
+            if (queue.QueueRecords.Count >= queue.MaxRecordNumber)
+            {
+                throw new QueueException("Max records achieved");
+            }
+
+            if (queue.QueueRecords.FirstOrDefault(x => x.Index == model.Index) != null)
+            {
+                throw new QueueException("This place has been already taken");
+            }
 
         }
+        
     }
 }
