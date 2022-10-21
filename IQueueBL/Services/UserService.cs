@@ -77,5 +77,9 @@ public class UserService : IUserService
         {
             throw new QueueException("LastName can't be null value.");
         }
+        if (string.IsNullOrEmpty(model.Id.ToString()))
+        {
+            throw new QueueException("Id can't be null value.");
+        }
     }
 }

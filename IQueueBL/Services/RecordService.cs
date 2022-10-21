@@ -82,6 +82,10 @@ namespace IQueueBL.Services
             {
                 throw new QueueException("UserId can't be null value.");
             }
+            if (string.IsNullOrEmpty(model.Id.ToString()))
+            {
+                throw new QueueException("Id can't be null value.");
+            }
 
         }
     }

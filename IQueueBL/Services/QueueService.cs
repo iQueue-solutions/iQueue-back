@@ -80,7 +80,15 @@ namespace IQueueBL.Services
             {
                 throw new QueueException("AdminId can't be null value.");
             }
-            
+            if (string.IsNullOrEmpty(model.Id.ToString()))
+            {
+                throw new QueueException("Id can't be null value.");
+            }
+            if (string.IsNullOrEmpty(model.IsOpen.ToString()))
+            {
+                throw new QueueException("IsOpen can't be null value.");
+            }
+
         }
     }
 }
