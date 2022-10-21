@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
@@ -34,12 +29,12 @@ namespace IQueueBL.Services
 
         public async Task DeleteAsync(Guid modelId)
         {
-            var model = _mapper.Map<RecordModel>(this.GetByIdAsync(modelId));
-            ValidateRecord(model);
-
-            var record = _mapper.Map<QueueRecord>(model);
-
-            await _unitOfWork.RecordRepository.DeleteByIdAsync(record.Id);
+            if (await GetByIdAsync(modelId) == null)
+            {
+                throw new QueueException("Record wasn't found");
+            }
+            
+            await _unitOfWork.RecordRepository.DeleteByIdAsync(modelId);
             await _unitOfWork.SaveAsync();
         }
 
@@ -64,6 +59,7 @@ namespace IQueueBL.Services
             _unitOfWork.RecordRepository.Update(record);
             await _unitOfWork.SaveAsync();
         }
+        
         private void ValidateRecord(RecordModel model)
         {
             if (string.IsNullOrEmpty(model.QueueId.ToString()))

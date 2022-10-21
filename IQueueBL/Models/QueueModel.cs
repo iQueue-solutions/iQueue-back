@@ -13,7 +13,7 @@ public class QueueModel
     /// <summary>
     /// Admin User of Queue.
     /// </summary>
-    public Guid AdminId { get; set; }
+    public Guid? AdminId { get; set; }
 
     /// <summary>
     /// Time of Queue Creation.
@@ -28,10 +28,10 @@ public class QueueModel
     /// <summary>
     /// Maximum users in queue.
     /// </summary>
-    public int MaxRecordNumber { get; set; }
+    public int? MaxRecordNumber { get; set; }
 
     /// <summary>
     /// List of records of queue changes.
     /// </summary>
-    public IList<Guid> RecordsIds { get; set; }
+    public IList<Guid>? RecordsIds { get; set; }
 }
