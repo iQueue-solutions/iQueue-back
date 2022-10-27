@@ -1,4 +1,5 @@
 using AutoMapper;
+using IQueueAPI.AutoMapper;
 using IQueueBL.AutoMapper;
 using IQueueBL.Interfaces;
 using IQueueBL.Services;
@@ -19,11 +20,18 @@ builder.Services.AddDbContext<QueueDbContext>(options => options.UseSqlServer(co
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//services cors
+builder.Services.AddCors(p => p.AddPolicy("policyforall", b =>
+{
+    b.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
 var mapperConfig = new MapperConfiguration(mc =>
 {
+    mc.AddProfile(new AutoMapperProfileApi());
     mc.AddProfile(new AutoMapperProfile());
 });
-            
+
 builder.Services.AddSingleton(mapperConfig.CreateMapper());
 
 builder.Services.AddScoped<IGroupRepository, GroupRepository>();
@@ -46,6 +54,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("policyforall");
 
 app.UseHttpsRedirection();
 

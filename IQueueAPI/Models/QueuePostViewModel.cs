@@ -1,15 +1,9 @@
-﻿namespace IQueueBL.Models;
+﻿using IQueueBL.Models;
 
-/// <summary>
-/// Queue to sign up model.
-/// </summary>
-public class QueueModel
-{  
-    /// <summary>
-    /// Model id.
-    /// </summary>
-    public Guid Id { get; set; }
+namespace IQueueAPI.Models;
 
+public class QueuePostViewModel
+{
     /// <summary>
     /// Name of Queue.
     /// </summary>
@@ -19,12 +13,7 @@ public class QueueModel
     /// Admin User of Queue.
     /// </summary>
     public Guid? AdminId { get; set; }
-
-    /// <summary>
-    /// Time of Queue Creation.
-    /// </summary>
-    public DateTime CreateTime { get; set; }
-
+    
     /// <summary>
     /// Time of Queue opening.
     /// </summary>
@@ -35,7 +24,6 @@ public class QueueModel
     /// </summary>
     public DateTime? CloseTime { get; set; }
 
-    
     /// <summary>
     /// Queue open status.
     /// </summary>
@@ -49,5 +37,5 @@ public class QueueModel
     /// <summary>
     /// List of records of queue changes.
     /// </summary>
-    public IList<RecordModel>? QueueRecords { get; set; }
+    public IList<RecordPostViewModel>? QueueRecords { get; set; }
 }

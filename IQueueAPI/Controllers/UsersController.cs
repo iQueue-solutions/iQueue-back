@@ -1,20 +1,24 @@
-﻿using IQueueBL.Interfaces;
+﻿using AutoMapper;
+using IQueueAPI.Models;
+using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IQueueAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/users")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IMapper _mapper;
         
         // GET: api/Users
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService, IMapper mapper)
         {
             _userService = userService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -38,12 +42,13 @@ namespace IQueueAPI.Controllers
 
         // POST: api/Users
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] UserModel value)
+        public async Task<ActionResult> Post([FromBody] UserPostViewModel value)
         {
             try
             {
-                await _userService.AddAsync(value);
-                return CreatedAtAction(nameof(Get), new { id = value.Id }, value);
+                var user = _mapper.Map<UserModel>(value);
+                await _userService.AddAsync(user);
+                return CreatedAtAction(nameof(Get), value);
             }
             catch (QueueException e)
             {

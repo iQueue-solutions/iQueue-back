@@ -7,6 +7,11 @@ namespace IQueueData.Entities
     public class Queue : BaseEntity
     {
         /// <summary>
+        /// Name of Queue.
+        /// </summary>
+        public string? Name { get; set; }
+        
+        /// <summary>
         /// Admin User of Queue.
         /// </summary>
         public Guid? AdminId { get; set; }
@@ -15,6 +20,16 @@ namespace IQueueData.Entities
         /// Time of Queue Creation.
         /// </summary>
         public DateTime CreateTime { get; set; }
+        
+        /// <summary>
+        /// Time of Queue opening.
+        /// </summary>
+        public DateTime? OpenTime { get; set; }
+        
+        /// <summary>
+        /// Time of Queue closing.
+        /// </summary>
+        public DateTime? CloseTime { get; set; }
 
         /// <summary>
         /// Queue open status.

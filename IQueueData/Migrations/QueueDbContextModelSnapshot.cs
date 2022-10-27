@@ -45,6 +45,9 @@ namespace IQueueData.Migrations
                     b.Property<Guid?>("AdminId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CloseTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
@@ -53,6 +56,12 @@ namespace IQueueData.Migrations
 
                     b.Property<int?>("MaxRecordNumber")
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("OpenTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

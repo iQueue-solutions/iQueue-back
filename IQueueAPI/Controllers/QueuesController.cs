@@ -1,20 +1,24 @@
-﻿using IQueueBL.Interfaces;
+﻿using AutoMapper;
+using IQueueAPI.Models;
+using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IQueueAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/queues")]
     [ApiController]
     public class QueuesController : ControllerBase
     {
         private readonly IQueueService _queueService;
+        private readonly IMapper _mapper;
         
         // GET: api/Queues
-        public QueuesController(IQueueService queueService)
+        public QueuesController(IQueueService queueService, IMapper mapper)
         {
             _queueService = queueService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -38,12 +42,14 @@ namespace IQueueAPI.Controllers
 
         // POST: api/Queues
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] QueueModel value)
+        public async Task<ActionResult> Post([FromBody] QueuePostViewModel value)
         {
             try
             {
-                await _queueService.AddAsync(value);
-                return CreatedAtAction(nameof(Get), new { id = value.Id }, value);
+                var queue = _mapper.Map<QueueModel>(value);
+                queue.CreateTime = DateTime.Now;
+                await _queueService.AddAsync(queue);
+                return CreatedAtAction(nameof(Get), value);
             }
             catch (QueueException e)
             {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using IQueueAPI.Models;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
@@ -10,15 +12,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IQueueAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/records")]
     [ApiController]
     public class RecordsController : ControllerBase
     {
         private readonly IRecordService _recordService;
+        private readonly IMapper _mapper;
 
-        public RecordsController(IRecordService recordService)
+        public RecordsController(IRecordService recordService, IMapper mapper)
         {
             _recordService = recordService;
+            _mapper = mapper;
         }
         
 
@@ -37,12 +41,13 @@ namespace IQueueAPI.Controllers
 
         // POST: api/Records
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] RecordModel value)
+        public async Task<ActionResult> Post([FromBody] RecordPostViewModel value)
         {
             try
             {
-                await _recordService.AddAsync(value);
-                return CreatedAtAction(nameof(Get), new { id = value.Id }, value);
+                var record = _mapper.Map<RecordModel>(value);
+                await _recordService.AddAsync(record);
+                return CreatedAtAction(nameof(Get), value);
             }
             catch (QueueException e)
             {
