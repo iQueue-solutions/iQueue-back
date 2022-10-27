@@ -90,11 +90,6 @@ namespace IQueueBL.Services
             {
                 throw new QueueException("Index must be a positive value."); 
             }
-
-            if (model.LabNumber <= 0)
-            {
-                throw new QueueException("Task must be a positive value.");
-            }
             
             if (queue.QueueRecords.Count >= queue.MaxRecordNumber)
             {

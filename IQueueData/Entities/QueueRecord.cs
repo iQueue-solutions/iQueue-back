@@ -9,7 +9,7 @@ namespace IQueueData.Entities
         /// <summary>
         /// Number of laboratory work.
         /// </summary>
-        public int LabNumber { get; set; }
+        public string? LabNumber { get; set; }
 
         /// <summary>
         /// Index number in queue.
