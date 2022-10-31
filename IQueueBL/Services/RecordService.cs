@@ -17,14 +17,16 @@ namespace IQueueBL.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task AddAsync(RecordModel model)
+        public async Task<Guid> AddAsync(RecordModel model)
         {
-            ValidateRecord(model);
+            await ValidateRecord(model);
 
-            var record = _mapper.Map<QueueRecord>(model);
+            var record = _mapper.Map<Record>(model);
 
-            await _unitOfWork.RecordRepository.AddAsync(record);
+            var id = await _unitOfWork.RecordRepository.AddAsync(record);
             await _unitOfWork.SaveAsync();
+
+            return id;
         }
 
         public async Task DeleteAsync(Guid modelId)
@@ -52,22 +54,18 @@ namespace IQueueBL.Services
 
         public async Task UpdateAsync(RecordModel model)
         {
-            ValidateRecord(model);
+            await ValidateRecord(model);
 
-            var record = _mapper.Map<QueueRecord>(model);
+            var record = _mapper.Map<Record>(model);
 
             _unitOfWork.RecordRepository.Update(record);
             await _unitOfWork.SaveAsync();
         }
 
 
-        private async void ValidateRecord(RecordModel model)
+        private async Task ValidateRecord(RecordModel model)
         {
-            if (string.IsNullOrEmpty(model.QueueId.ToString()))
-            {
-                throw new QueueException("QueueId can't be null value.");
-            }
-            if (string.IsNullOrEmpty(model.LabNumber.ToString()))
+            if (string.IsNullOrEmpty(model.LabNumber))
             {
                 throw new QueueException("LabNumber can't be null value.");
             }
@@ -75,33 +73,30 @@ namespace IQueueBL.Services
             {
                 throw new QueueException("Index can't be null value.");
             }
-            if (string.IsNullOrEmpty(model.UserId.ToString()))
-            {
-                throw new QueueException("UserId can't be null value.");
-            }
-            if (string.IsNullOrEmpty(model.Id.ToString()))
-            {
-                throw new QueueException("Id can't be null value.");
-            }
-            
-            var queue = await _unitOfWork.QueueRepository.GetByIdWithDetailsAsync(model.QueueId);
 
             if (model.Index <= 0)
             {
-                throw new QueueException("Index must be a positive value."); 
-            }
-            
-            if (queue.QueueRecords.Count >= queue.MaxRecordNumber)
-            {
-                throw new QueueException("Max records achieved");
+                throw new QueueException("Index must be a positive value.");
             }
 
-            if (queue.QueueRecords.FirstOrDefault(x => x.Index == model.Index) != null)
+            var userInQueue = await _unitOfWork.UserInQueueRepository.GetByIdAsync(model.ParticipantId);
+            if (userInQueue == null)
+            {
+                throw new QueueException("UserQueueId can't be null value.");
+            } 
+
+            var queue = await _unitOfWork.QueueRepository.GetByIdWithDetailsAsync(userInQueue.QueueId);
+            if (queue.QueueUsers.Count >= queue.MaxRecordNumber)
+            {
+                throw new QueueException("Max records achieved");
+            } 
+
+            var records = (await _unitOfWork.RecordRepository.GetAllAsync())
+                .Where(x => x.UserQueue.QueueId == queue.Id);
+            if (records.FirstOrDefault(x => x.Index == model.Index) != null)
             {
                 throw new QueueException("This place has been already taken");
             }
-
         }
-        
     }
 }

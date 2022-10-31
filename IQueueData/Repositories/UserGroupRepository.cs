@@ -13,9 +13,10 @@ namespace IQueueData.Repositories
             _queueDbContext = queueDbContext;
         }
 
-        public async Task AddAsync(UserGroup entity)
+        public async Task<Guid> AddAsync(UserGroup entity)
         {
             await _queueDbContext.UserGroups.AddAsync(entity);
+            return entity.Id;
         }
 
         public void Delete(UserGroup entity)

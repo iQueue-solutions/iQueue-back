@@ -39,6 +39,7 @@ builder.Services.AddScoped<IQueueRepository, QueueRepository>();
 builder.Services.AddScoped<IRecordRepository, RecordRepository>();
 builder.Services.AddScoped<IUserGroupRepository, UserGroupRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserInQueueRepository, UserInQueueRepository>();
 
 builder.Services.AddScoped<IQueueService, QueueService>();
 builder.Services.AddScoped<IRecordService, RecordService>();
@@ -49,11 +50,11 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//if (app.Environment.IsDevelopment())
+//{
+app.UseSwagger();
+app.UseSwaggerUI();
+//}
 
 app.UseCors("policyforall");
 

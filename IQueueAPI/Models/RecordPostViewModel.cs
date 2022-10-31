@@ -2,6 +2,13 @@
 
 public class RecordPostViewModel
 {
+
+    /// <summary>
+    /// Id of created or changed queue.
+    /// </summary>
+    public Guid ParticipantId { get; set; }
+
+
     /// <summary>
     /// Number of laboratory work.
     /// </summary>
@@ -12,13 +19,4 @@ public class RecordPostViewModel
     /// </summary>
     public int Index { get; set; }
 
-    /// <summary>
-    /// Id of created or changed queue.
-    /// </summary>
-    public Guid QueueId { get; set; }
-
-    /// <summary>
-    /// Id of entered used.
-    /// </summary>
-    public Guid UserId { get; set; }
 }

@@ -13,9 +13,10 @@ namespace IQueueData.Repositories
             _queueDbContext = queueDbContext;
         }
 
-        public async Task AddAsync(User entity)
+        public async Task<Guid> AddAsync(User entity)
         {
             await _queueDbContext.Users.AddAsync(entity);
+            return entity.Id;
         }
 
         public async void Delete(User entity)
@@ -43,7 +44,7 @@ namespace IQueueData.Repositories
             return Task.FromResult<IEnumerable<User>>(
                 _queueDbContext.Users
                 .Include(x => x.UserGroups)
-                .Include(x => x.QueueRecords));
+                .Include(x => x.UserInQueues));
         }
 
         public async Task<User> GetByIdAsync(Guid id)
@@ -56,7 +57,7 @@ namespace IQueueData.Repositories
             return await 
                 _queueDbContext.Users
                 .Include(x => x.UserGroups)
-                .Include(x => x.QueueRecords).
+                .Include(x => x.UserInQueues).
                 FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 

@@ -49,5 +49,5 @@ public class QueueModel
     /// <summary>
     /// List of records of queue changes.
     /// </summary>
-    public IList<RecordModel>? QueueRecords { get; set; }
+    public IList<ParticipantModel>? Participants { get; set; }
 }

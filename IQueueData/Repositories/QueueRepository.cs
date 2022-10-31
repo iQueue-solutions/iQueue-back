@@ -13,9 +13,10 @@ namespace IQueueData.Repositories
             _queueDbContext = queueDbContext;
         }
 
-        public async Task AddAsync(Queue entity)
+        public async Task<Guid> AddAsync(Queue entity)
         {
             await _queueDbContext.Queues.AddAsync(entity);
+            return entity.Id;
         }
 
         public void Delete(Queue entity)
@@ -39,7 +40,7 @@ namespace IQueueData.Repositories
         {
             return Task.FromResult<IEnumerable<Queue>>(
                 _queueDbContext.Queues                
-                .Include(x => x.QueueRecords));
+                .Include(x => x.QueueUsers));
         }
 
         public async Task<Queue> GetByIdAsync(Guid id)
@@ -50,7 +51,7 @@ namespace IQueueData.Repositories
         public async Task<Queue> GetByIdWithDetailsAsync(Guid id)
         {
             return await _queueDbContext.Queues                
-                .Include(x => x.QueueRecords).
+                .Include(x => x.QueueUsers).
                 FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 

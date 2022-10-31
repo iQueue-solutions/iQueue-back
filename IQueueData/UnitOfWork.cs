@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IQueueData.Interfaces;
+﻿using IQueueData.Interfaces;
 
 namespace IQueueData
 {
@@ -17,13 +11,15 @@ namespace IQueueData
         public IRecordRepository RecordRepository { get; }
         public IUserGroupRepository UserGroupRepository { get; }
         public IUserRepository UserRepository { get; }
-        
+        public IUserInQueueRepository UserInQueueRepository { get; }
+
         public UnitOfWork(QueueDbContext context,
             IGroupRepository groupRepository,
             IQueueRepository queueRepository,
             IRecordRepository recordRepository,
             IUserGroupRepository userGroupRepository,
-            IUserRepository userRepository)
+            IUserRepository userRepository, 
+            IUserInQueueRepository userInQueueRepository)
         {
             _context = context;
             GroupRepository = groupRepository;
@@ -31,6 +27,7 @@ namespace IQueueData
             RecordRepository = recordRepository;
             UserGroupRepository = userGroupRepository;
             UserRepository = userRepository;
+            UserInQueueRepository = userInQueueRepository;
         }
         
         public async Task SaveAsync()

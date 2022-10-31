@@ -8,7 +8,7 @@ namespace IQueueData.Interfaces
 
         Task<TEntity> GetByIdAsync(Guid id);
 
-        Task AddAsync(TEntity entity);
+        Task<Guid> AddAsync(TEntity entity);
 
         void Delete(TEntity entity);
 

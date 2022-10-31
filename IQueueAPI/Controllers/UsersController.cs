@@ -47,8 +47,8 @@ namespace IQueueAPI.Controllers
             try
             {
                 var user = _mapper.Map<UserModel>(value);
-                await _userService.AddAsync(user);
-                return CreatedAtAction(nameof(Get), value);
+                var id = await _userService.AddAsync(user);
+                return CreatedAtAction(nameof(Get), id );
             }
             catch (QueueException e)
             {

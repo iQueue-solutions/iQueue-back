@@ -40,6 +40,12 @@ namespace IQueueAPI.Controllers
             return Ok(queue);
         }
 
+        [HttpGet("{id:guid}/participants")]
+        public async Task<ActionResult> GetQueueParticipantsIds(Guid id)
+        {
+            return Ok(await _queueService.GetParticipantsIds(id));
+        }
+
         // POST: api/Queues
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] QueuePostViewModel value)
@@ -48,8 +54,24 @@ namespace IQueueAPI.Controllers
             {
                 var queue = _mapper.Map<QueueModel>(value);
                 queue.CreateTime = DateTime.Now;
-                await _queueService.AddAsync(queue);
-                return CreatedAtAction(nameof(Get), value);
+                var id = await _queueService.AddAsync(queue);
+                return CreatedAtAction(nameof(Get), id);
+            }
+            catch (QueueException e)
+            {
+                return BadRequest($"Exception: {e.Message}");
+            }
+        }
+        
+        
+        
+        [HttpPost("{id:guid}/add-participants")]
+        public async Task<ActionResult> AddUsersInQueue(Guid id, [FromBody] IEnumerable<Guid> usersIds)
+        {
+            try
+            {
+                await _queueService.AddUsersInQueueAsync(id, usersIds);
+                return Ok();
             }
             catch (QueueException e)
             {
@@ -82,6 +104,20 @@ namespace IQueueAPI.Controllers
             {
                 await _queueService.DeleteAsync(id);
                 return NoContent();
+            }
+            catch (QueueException e)
+            {
+                return BadRequest($"Exception: {e.Message}");
+            }
+        }
+        
+        [HttpDelete("{id:guid}/delete-participants")]
+        public async Task<ActionResult> DeleteUsersFromQueue(Guid id, [FromBody] IEnumerable<Guid> usersIds)
+        {
+            try
+            {
+                await _queueService.DeleteUsersFromQueueAsync(id, usersIds);
+                return Ok();
             }
             catch (QueueException e)
             {

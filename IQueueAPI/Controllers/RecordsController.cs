@@ -46,8 +46,8 @@ namespace IQueueAPI.Controllers
             try
             {
                 var record = _mapper.Map<RecordModel>(value);
-                await _recordService.AddAsync(record);
-                return CreatedAtAction(nameof(Get), value);
+                var id = await _recordService.AddAsync(record);
+                return Ok(id);
             }
             catch (QueueException e)
             {

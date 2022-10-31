@@ -30,14 +30,16 @@ public class UserService : IUserService
         return _mapper.Map<UserModel>(user);
     }
 
-    public async Task AddAsync(UserModel model)
+    public async Task<Guid> AddAsync(UserModel model)
     {
         ValidateUser(model);
         
         var user = _mapper.Map<User>(model);
         
-        await _unitOfWork.UserRepository.AddAsync(user);
+        var id = await _unitOfWork.UserRepository.AddAsync(user);
         await _unitOfWork.SaveAsync();
+
+        return id;
     }
 
     public async Task UpdateAsync(UserModel model)

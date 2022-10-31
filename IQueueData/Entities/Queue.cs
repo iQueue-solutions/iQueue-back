@@ -44,6 +44,6 @@ namespace IQueueData.Entities
         /// <summary>
         /// List of records of queue changes.
         /// </summary>
-        public IList<QueueRecord> QueueRecords { get; set; } = new List<QueueRecord>();
+        public IList<UserInQueue> QueueUsers { get; set; } = new List<UserInQueue>();
     }
 }

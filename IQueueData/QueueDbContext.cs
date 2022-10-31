@@ -9,11 +9,13 @@ namespace IQueueData
 
         public DbSet<Queue> Queues { get; set; }
 
-        public DbSet<QueueRecord> QueueRecords { get; set; }
+        public DbSet<Record> Records { get; set; }
 
         public DbSet<User> Users { get; set; }
 
         public DbSet<UserGroup> UserGroups { get; set; }
+        
+        public DbSet<UserInQueue> UserQueueCollection { get; set; }
 
         public QueueDbContext(DbContextOptions<QueueDbContext> options) : base(options)
         {
@@ -23,14 +25,16 @@ namespace IQueueData
         { 
             modelBuilder.Entity<Group>();
 
-            modelBuilder.Entity<QueueRecord>();
+            modelBuilder.Entity<Record>();
 
             modelBuilder.Entity<Queue>();
 
             modelBuilder.Entity<User>();
 
             modelBuilder.Entity<UserGroup>();
-        
+
+            modelBuilder.Entity<UserInQueue>();
+            
             base.OnModelCreating(modelBuilder);
         }
     }

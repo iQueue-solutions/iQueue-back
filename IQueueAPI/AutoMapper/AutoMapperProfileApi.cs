@@ -9,7 +9,8 @@ public class AutoMapperProfileApi : Profile
     public AutoMapperProfileApi()
     {
         CreateMap<QueuePostViewModel, QueueModel>();
-        
+            
+
         CreateMap<QueueModel, QueuePostViewModel>();
 
         CreateMap<RecordModel, RecordPostViewModel>();

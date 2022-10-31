@@ -2,7 +2,7 @@
 
 namespace IQueueData.Interfaces
 {
-    public interface IRecordRepository : IRepository<QueueRecord>
+    public interface IRecordRepository : IRepository<Record>
     {
     }
 }

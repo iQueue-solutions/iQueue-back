@@ -68,7 +68,7 @@ namespace IQueueData.Migrations
                     b.ToTable("Queues");
                 });
 
-            modelBuilder.Entity("IQueueData.Entities.QueueRecord", b =>
+            modelBuilder.Entity("IQueueData.Entities.Record", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -77,22 +77,17 @@ namespace IQueueData.Migrations
                     b.Property<int>("Index")
                         .HasColumnType("int");
 
-                    b.Property<int>("LabNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("LabNumber")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("QueueId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid>("UserQueueId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QueueId");
+                    b.HasIndex("UserQueueId");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("QueueRecords");
+                    b.ToTable("Records");
                 });
 
             modelBuilder.Entity("IQueueData.Entities.User", b =>
@@ -136,23 +131,36 @@ namespace IQueueData.Migrations
                     b.ToTable("UserGroups");
                 });
 
-            modelBuilder.Entity("IQueueData.Entities.QueueRecord", b =>
+            modelBuilder.Entity("IQueueData.Entities.UserInQueue", b =>
                 {
-                    b.HasOne("IQueueData.Entities.Queue", "Queue")
-                        .WithMany("QueueRecords")
-                        .HasForeignKey("QueueId")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("QueueId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QueueId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserQueueCollection");
+                });
+
+            modelBuilder.Entity("IQueueData.Entities.Record", b =>
+                {
+                    b.HasOne("IQueueData.Entities.UserInQueue", "UserQueue")
+                        .WithMany()
+                        .HasForeignKey("UserQueueId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("IQueueData.Entities.User", "User")
-                        .WithMany("QueueRecords")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Queue");
-
-                    b.Navigation("User");
+                    b.Navigation("UserQueue");
                 });
 
             modelBuilder.Entity("IQueueData.Entities.UserGroup", b =>
@@ -174,6 +182,25 @@ namespace IQueueData.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("IQueueData.Entities.UserInQueue", b =>
+                {
+                    b.HasOne("IQueueData.Entities.Queue", "Queue")
+                        .WithMany("QueueUsers")
+                        .HasForeignKey("QueueId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("IQueueData.Entities.User", "User")
+                        .WithMany("UserInQueues")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Queue");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("IQueueData.Entities.Group", b =>
                 {
                     b.Navigation("UserGroups");
@@ -181,14 +208,14 @@ namespace IQueueData.Migrations
 
             modelBuilder.Entity("IQueueData.Entities.Queue", b =>
                 {
-                    b.Navigation("QueueRecords");
+                    b.Navigation("QueueUsers");
                 });
 
             modelBuilder.Entity("IQueueData.Entities.User", b =>
                 {
-                    b.Navigation("QueueRecords");
-
                     b.Navigation("UserGroups");
+
+                    b.Navigation("UserInQueues");
                 });
 #pragma warning restore 612, 618
         }

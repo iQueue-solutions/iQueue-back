@@ -37,5 +37,5 @@ public class QueuePostViewModel
     /// <summary>
     /// List of records of queue changes.
     /// </summary>
-    public IList<RecordPostViewModel>? QueueRecords { get; set; }
+    public IList<Guid>? ParticipantsIds { get; set; }
 }

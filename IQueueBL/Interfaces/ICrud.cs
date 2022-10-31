@@ -6,7 +6,7 @@ public interface ICrud<TModel> where TModel : class
 
     Task<TModel> GetByIdAsync(Guid id);
 
-    Task AddAsync(TModel model);
+    Task<Guid> AddAsync(TModel model);
 
     Task UpdateAsync(TModel model);
 

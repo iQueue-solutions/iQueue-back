@@ -12,5 +12,7 @@ public interface IUnitOfWork
     
     public IUserRepository UserRepository { get; }
     
+    public IUserInQueueRepository UserInQueueRepository { get; }
+    
     Task SaveAsync();
 }
