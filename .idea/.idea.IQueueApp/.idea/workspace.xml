@@ -4,53 +4,35 @@
     <projectFile profileName="IIS Express">IQueueAPI/IQueueAPI.csproj</projectFile>
     <projectFile profileName="IQueueAPI">IQueueAPI/IQueueAPI.csproj</projectFile>
     <projectFile pubXmlPath="IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - FTP.pubxml">IQueueAPI/IQueueAPI.csproj</projectFile>
+    <projectFile pubXmlPath="IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - FTP1.pubxml">IQueueAPI/IQueueAPI.csproj</projectFile>
     <projectFile pubXmlPath="IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - Web Deploy.pubxml">IQueueAPI/IQueueAPI.csproj</projectFile>
+    <projectFile pubXmlPath="IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - Web Deploy1.pubxml">IQueueAPI/IQueueAPI.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IQueueBL/Models/UserInQueueModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IQueueData/Entities/Record.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IQueueData/Entities/UserInQueue.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IUserInQueueRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IQueueData/Repositories/UserInQueueRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IQueueAPI/Models/OpenQueueRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_30_PM_[Changes]/.suo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_30_PM_[Changes]/iqueueapp.metadata.v5.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_30_PM_[Changes]/iqueueapp.projects.v5.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_30_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_30_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/2f1a43d3-fdb9-4ba8-bca7-6aad4b74f07b.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/5eaca61d-0474-4385-8d1b-afb022f497fa.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/93398ffe-ca8d-4990-9f9c-1a67324ea68f.vsidx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/QueuePostViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Models/QueuePostViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/RecordPostViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Models/RecordPostViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/AutoMapper/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/AutoMapper/AutoMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/ICrud.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/ICrud.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - FTP.pubxml.user" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - FTP.pubxml.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IRecordService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Models/QueueModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Models/QueueModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Models/RecordModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Models/RecordModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Entities/Queue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Entities/Queue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Entities/QueueRecord.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Entities/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IRecordRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IRecordRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/QueueDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Migrations/QueueDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/QueueDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/QueueDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/GroupRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/GroupRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/QueueRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/QueueRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/RecordRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/RecordRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/UserGroupRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/UserGroupRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/UnitOfWork.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,15 +73,58 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Publish to IIS.IQueueAPI: iqueue-001-site1 - FTP">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Local">
     <configuration name="IQueueAPI: iqueue-001-site1 - FTP" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
       <riderPublish configuration="Release" platform="Any CPU" publish_profile="iqueue-001-site1 - FTP.pubxml" pubxml_path="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - FTP.pubxml" user_name="iqueue-001" uuid_high="4824382487065936712" uuid_low="-5794824312202405735" />
+      <method v="2" />
+    </configuration>
+    <configuration name="IQueueAPI: iqueue-001-site1 - FTP1" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
+      <riderPublish configuration="Release" platform="Any CPU" publish_profile="iqueue-001-site1 - FTP1.pubxml" pubxml_path="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - FTP1.pubxml" user_name="iqueue-001" uuid_high="4824382487065936712" uuid_low="-5794824312202405735" />
       <method v="2" />
     </configuration>
     <configuration name="IQueueAPI: iqueue-001-site1 - Web Deploy" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
       <riderPublish configuration="Release" platform="Any CPU" publish_profile="iqueue-001-site1 - Web Deploy.pubxml" pubxml_path="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - Web Deploy.pubxml" user_name="iqueue-001" uuid_high="4824382487065936712" uuid_low="-5794824312202405735" />
       <method v="2" />
     </configuration>
+    <configuration name="IQueueAPI: iqueue-001-site1 - Web Deploy1" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
+      <riderPublish configuration="Release" platform="Any CPU" publish_profile="iqueue-001-site1 - Web Deploy1.pubxml" pubxml_path="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - Web Deploy1.pubxml" user_name="iqueue-001" uuid_high="4824382487065936712" uuid_low="-5794824312202405735" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Local" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="IQueueAPI" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="RunExe" factoryName=".NET Executable" nameIsGenerated="true">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build Solution" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue=".NET Executable.Unnamed" />
+      <item itemvalue=".NET Launch Settings Profile.Local" />
+      <item itemvalue="Publish to IIS.IQueueAPI: iqueue-001-site1 - FTP" />
+      <item itemvalue="Publish to IIS.IQueueAPI: iqueue-001-site1 - FTP1" />
+      <item itemvalue="Publish to IIS.IQueueAPI: iqueue-001-site1 - Web Deploy" />
+      <item itemvalue="Publish to IIS.IQueueAPI: iqueue-001-site1 - Web Deploy1" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -116,6 +141,8 @@
       <workItem from="1667138317972" duration="518000" />
       <workItem from="1667143374210" duration="15000" />
       <workItem from="1667156789774" duration="106000" />
+      <workItem from="1667314632280" duration="33000" />
+      <workItem from="1667990961938" duration="2516000" />
     </task>
     <task id="LOCAL-00001" summary="Update Queue. Update POST.">
       <created>1666870163357</created>

@@ -113,6 +113,32 @@ namespace IQueueBL.Services
             return result;
         }
 
+        public async Task<bool> Open(Guid queueId, Guid userId, DateTime closeTime)
+        {
+            var queue = await _unitOfWork.QueueRepository.GetByIdWithDetailsAsync(queueId);
+
+            if (queue == null)
+            {
+                throw new QueueException("Queue not found");
+            }
+            if (queue.AdminId != userId)
+            {
+                throw new QueueException("Not admin of queue.");
+            }
+
+            if (DateTime.Now >= closeTime)
+            {
+                return false;
+            }
+
+            queue.OpenTime = DateTime.Now;
+            queue.CloseTime = closeTime;
+            queue.IsOpen = true;
+            await _unitOfWork.SaveAsync();
+
+            return true;
+        }
+
         private void ValidateQueue(QueueModel model)
         {
             if (string.IsNullOrEmpty(model.CreateTime.ToString()))

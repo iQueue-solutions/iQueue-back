@@ -7,5 +7,64 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
+    <History>False|2022-10-31T12:52:39.7799220Z;</History>
+    <LastFailureDetails />
+    <_PublishTargetUrl>ftp://win8018.site4now.net:21/iqueue</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>10/18/2022 12:03:04</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>10/27/2022 13:30:24</publishTime>
+    </File>
+    <File Include="AutoMapper.dll">
+      <publishTime>09/30/2022 12:45:38</publishTime>
+    </File>
+    <File Include="dotnet-aspnet-codegenerator-design.dll">
+      <publishTime>09/22/2022 00:02:44</publishTime>
+    </File>
+    <File Include="Humanizer.dll">
+      <publishTime>06/02/2020 16:07:58</publishTime>
+    </File>
+    <File Include="IQueueAPI.deps.json">
+      <publishTime>10/31/2022 14:51:08</publishTime>
+    </File>
+    <File Include="IQueueAPI.dll">
+      <publishTime>10/31/2022 14:50:25</publishTime>
+    </File>
+    <File Include="IQueueAPI.exe">
+      <publishTime>10/31/2022 14:50:25</publishTime>
+    </File>
+    <File Include="IQueueAPI.pdb">
+      <publishTime>10/31/2022 14:50:25</publishTime>
+    </File>
+    <File Include="IQueueAPI.runtimeconfig.json">
+      <publishTime>10/29/2022 19:24:06</publishTime>
+    </File>
+    <File Include="IQueueBL.dll">
+      <publishTime>10/31/2022 14:50:23</publishTime>
+    </File>
+    <File Include="IQueueBL.pdb">
+      <publishTime>10/31/2022 14:50:22</publishTime>
+    </File>
+    <File Include="IQueueData.dll">
+      <publishTime>10/31/2022 14:50:21</publishTime>
+    </File>
+    <File Include="IQueueData.pdb">
+      <publishTime>10/31/2022 14:50:21</publishTime>
+    </File>
+    <File Include="MessagePack.Annotations.dll">
+      <publishTime>07/01/2020 16:05:20</publishTime>
+    </File>
+    <File Include="MessagePack.dll">
+      <publishTime>07/01/2020 16:05:38</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Razor.Language.dll">
+      <publishTime>10/27/2021 00:51:08</publishTime>
+    </File>
+    <File Include="Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>10/19/2020 21:47:56</publishTime>
+    </File>
+  </ItemGroup>
 </Project>

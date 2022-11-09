@@ -9,4 +9,6 @@ public interface IQueueService : ICrud<QueueModel>
     public Task DeleteUsersFromQueueAsync(Guid queueId, IEnumerable<Guid> usersIds);
 
     public Task<ICollection<ParticipantModel>> GetParticipantsIds(Guid queueId);
+
+    public Task<bool> Open(Guid queueId, Guid userId, DateTime closeTime);
 }
