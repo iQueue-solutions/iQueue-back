@@ -21,8 +21,4 @@
       <ProjectReference Include="..\IQueueData\IQueueData.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Controllers" />
-    </ItemGroup>
-
 </Project>

@@ -65,19 +65,7 @@ namespace IQueueAPI.Controllers
 
 
 
-        [HttpPost("{id:guid}/add-participants")]
-        public async Task<ActionResult> AddUsersInQueue(Guid id, [FromBody] IEnumerable<Guid> usersIds)
-        {
-            try
-            {
-                await _queueService.AddUsersInQueueAsync(id, usersIds);
-                return Ok();
-            }
-            catch (QueueException e)
-            {
-                return BadRequest($"Exception: {e.Message}");
-            }
-        }
+        
 
         // PUT: api/Queues/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
         [HttpPut("{id:guid}")]
@@ -129,18 +117,6 @@ namespace IQueueAPI.Controllers
             }
         }
         
-        [HttpDelete("{id:guid}/delete-participants")]
-        public async Task<ActionResult> DeleteUsersFromQueue(Guid id, [FromBody] IEnumerable<Guid> usersIds)
-        {
-            try
-            {
-                await _queueService.DeleteUsersFromQueueAsync(id, usersIds);
-                return Ok();
-            }
-            catch (QueueException e)
-            {
-                return BadRequest($"Exception: {e.Message}");
-            }
-        }
+        
     }
 }
