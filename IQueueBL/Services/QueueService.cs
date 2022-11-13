@@ -67,51 +67,7 @@ namespace IQueueBL.Services
 
             _unitOfWork.QueueRepository.Update(queue);
             await _unitOfWork.SaveAsync();
-        }
-        
-        
-        public async Task AddUsersInQueueAsync( Guid queueId, IEnumerable<Guid> usersIds)
-        {
-            foreach (var userId in usersIds)
-            {
-                var userInQueue = (await _unitOfWork.UserInQueueRepository.GetAllAsync())
-                    .FirstOrDefault(x => x.QueueId == queueId && x.UserId == userId);
-                if (userInQueue != null)
-                {
-                    continue;
-                }
-                
-                userInQueue = new UserInQueue { UserId = userId, QueueId = queueId };
-                await _unitOfWork.UserInQueueRepository.AddAsync(userInQueue);
-                await _unitOfWork.SaveAsync();
-            }
-        }
-
-        public async Task DeleteUsersFromQueueAsync( Guid queueId, IEnumerable<Guid> usersIds)
-        {
-            foreach (var userId in usersIds)
-            {
-                var userInQueue = (await _unitOfWork.UserInQueueRepository.GetAllAsync())
-                    .FirstOrDefault(x => x.QueueId == queueId && x.UserId == userId);
-
-                if (userInQueue != null) await _unitOfWork.UserInQueueRepository.DeleteByIdAsync(userInQueue.Id);
-            }
-            await _unitOfWork.SaveAsync();
-        }
-
-        public async Task<ICollection<ParticipantModel>> GetParticipantsIds(Guid queueId)
-        {
-            var participants = (await _unitOfWork.UserInQueueRepository.GetAllAsync())
-                .Where(x => x.QueueId == queueId);
-
-            var result = new List<ParticipantModel>();
-            foreach (var participant in participants)
-            {
-                result.Add(new ParticipantModel { Id = participant.Id, UserId = participant.UserId});
-            }
-
-            return result;
-        }
+        }       
 
         public async Task<bool> Open(Guid queueId, Guid userId, DateTime closeTime)
         {

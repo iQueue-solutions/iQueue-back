@@ -19,6 +19,16 @@ namespace IQueueBL.Services
             _mapper = mapper;
         }
 
+        public async Task<Guid> AddAsync(ParticipantModel model)
+        {
+            ValidateParticipant(model);
+
+            var participant = _mapper.Map<UserInQueue>(model);
+            var id = await _unitOfWork.UserInQueueRepository.AddAsync(participant);
+            await _unitOfWork.SaveAsync();
+            return id;
+        }
+
         public async Task AddUsersInQueueAsync(Guid queueId, IEnumerable<Guid> usersIds)
         {
             foreach (var userId in usersIds)
@@ -36,6 +46,17 @@ namespace IQueueBL.Services
             }
         }
 
+        public async Task DeleteAsync(Guid modelId)
+        {
+            if (await GetByIdAsync(modelId) == null)
+            {
+                throw new ParticipantException("User wasn't found");
+            }
+
+            await _unitOfWork.UserInQueueRepository.DeleteByIdAsync(modelId);
+            await _unitOfWork.SaveAsync();
+        }
+
         public async Task DeleteUsersFromQueueAsync(Guid queueId, IEnumerable<Guid> usersIds)
         {
             foreach (var userId in usersIds)
@@ -46,6 +67,59 @@ namespace IQueueBL.Services
                 if (userInQueue != null) await _unitOfWork.UserInQueueRepository.DeleteByIdAsync(userInQueue.Id);
             }
             await _unitOfWork.SaveAsync();
+        }
+
+        public async Task<IEnumerable<ParticipantModel>> GetAllAsync()
+        {
+            var participants = await _unitOfWork.UserInQueueRepository.GetAllAsync();
+            return _mapper.Map<IEnumerable<ParticipantModel>>(participants);
+        }
+
+        public async Task<ParticipantModel> GetByIdAsync(Guid id)
+        {
+            var participants = await _unitOfWork.UserInQueueRepository.GetByIdAsync(id);
+            return _mapper.Map<ParticipantModel>(participants);
+        }
+
+        public async Task<ICollection<ParticipantModel>> GetParticipantsIds(Guid queueId)
+        {
+            var participants = (await _unitOfWork.UserInQueueRepository.GetAllAsync())
+                .Where(x => x.QueueId == queueId);
+
+            var result = new List<ParticipantModel>();
+            foreach (var participant in participants)
+            {
+                result.Add(new ParticipantModel { Id = participant.Id, UserId = participant.UserId });
+            }
+
+            return result;
+        }
+
+        public async Task UpdateAsync(ParticipantModel model)
+        {
+            ValidateParticipant(model);
+
+            var participant = _mapper.Map<UserInQueue>(model);
+
+            _unitOfWork.UserInQueueRepository.Update(participant);
+            await _unitOfWork.SaveAsync();
+        }
+
+        private void ValidateParticipant(ParticipantModel model)
+        {
+            if (string.IsNullOrEmpty(model.Id.ToString()))
+            {
+                throw new ParticipantException("Id can't be null value.");
+            }
+            if (string.IsNullOrEmpty(model.UserId.ToString()))
+            {
+                throw new ParticipantException("UserId can't be null value.");
+            }
+            if (string.IsNullOrEmpty(model.QueueId.ToString()))
+            {
+                throw new ParticipantException("QueueId can't be null value.");
+            }           
+
         }
     }
 }
