@@ -40,11 +40,7 @@ namespace IQueueAPI.Controllers
             return Ok(queue);
         }
 
-        [HttpGet("{id:guid}/participants")]
-        public async Task<ActionResult> GetQueueParticipantsIds(Guid id)
-        {
-            return Ok(await _queueService.GetParticipantsIds(id));
-        }
+        
 
         // POST: api/Queues
         [HttpPost]
