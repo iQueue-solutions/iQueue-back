@@ -4,6 +4,7 @@ using IQueueBL.Models;
 using IQueueBL.Validation;
 using IQueueData.Entities;
 using IQueueData.Interfaces;
+using System.Linq;
 using Queue = IQueueData.Entities.Queue;
 
 namespace IQueueBL.Services
@@ -95,6 +96,22 @@ namespace IQueueBL.Services
             return true;
         }
 
+        public async Task<ICollection<RecordModel>> GetRecordsInQueue(Guid queueId)
+        {
+            var users = (await _unitOfWork.UserInQueueRepository.GetAllAsync())
+                .Where(x => x.QueueId == queueId);
+            var records = (await _unitOfWork.RecordRepository.GetAllAsync())
+                .Where(x => x.UserQueueId == users.FirstOrDefault(x => x.QueueId == queueId).Id);
+
+            var result = new List<RecordModel>();
+            foreach (var record in records)
+            {
+                result.Add(new RecordModel { Id = record.Id, ParticipantId = record.UserQueueId, Index = record.Index });
+            }
+
+            return result;
+        }
+
         private void ValidateQueue(QueueModel model)
         {
             if (string.IsNullOrEmpty(model.CreateTime.ToString()))
@@ -119,5 +136,7 @@ namespace IQueueBL.Services
             }
 
         }
+
+        
     }
 }
