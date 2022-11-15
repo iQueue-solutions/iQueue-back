@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using IQueueAPI.Models;
+using IQueueAPI.Requests;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
@@ -40,16 +40,16 @@ namespace IQueueAPI.Controllers
             return Ok(queue);
         }
 
-        [HttpGet("{id:guid}")]
-        public async Task<ActionResult<ICollection<RecordModel>>> GetRecordsInQueue(Guid queueId)
+        [HttpGet("{id:guid}/records")]
+        public async Task<ActionResult<ICollection<RecordModel>>> GetRecordsInQueue(Guid id)
         {
-            return Ok(await _queueService.GetRecordsInQueue(queueId));
+            return Ok(await _queueService.GetRecordsInQueue(id));
         }
 
 
         // POST: api/Queues
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] QueuePostViewModel value)
+        public async Task<ActionResult> Post([FromBody] QueuePostRequest value)
         {
             try
             {
@@ -63,10 +63,6 @@ namespace IQueueAPI.Controllers
                 return BadRequest($"Exception: {e.Message}");
             }
         }
-
-
-
-        
 
         // PUT: api/Queues/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
         [HttpPut("{id:guid}")]
@@ -101,6 +97,23 @@ namespace IQueueAPI.Controllers
                 return BadRequest($"Exception: {e.Message}");
             }
         }
+        
+        [HttpPut("{id:guid}/close")]
+        public async Task<ActionResult> CloseQueue(Guid id, [FromBody] CloseQueueRequest request)
+        {
+            try
+            {
+                var result = await _queueService.Close(id, request.UserId);
+                if (result == false)
+                    return new EmptyResult();
+          
+                return Ok( ("Queue is closed") );
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Exception: {e.Message}");
+            }
+        }
 
 
         // DELETE: api/Queues/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
@@ -117,7 +130,5 @@ namespace IQueueAPI.Controllers
                 return BadRequest($"Exception: {e.Message}");
             }
         }
-        
-        
     }
 }

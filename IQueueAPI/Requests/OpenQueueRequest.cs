@@ -1,4 +1,4 @@
-﻿namespace IQueueAPI.Models;
+﻿namespace IQueueAPI.Requests;
 
 public class OpenQueueRequest
 {

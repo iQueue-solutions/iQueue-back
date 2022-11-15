@@ -2,9 +2,7 @@
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
-using IQueueData.Entities;
 using IQueueData.Interfaces;
-using System.Linq;
 using Queue = IQueueData.Entities.Queue;
 
 namespace IQueueBL.Services
@@ -96,6 +94,26 @@ namespace IQueueBL.Services
             return true;
         }
 
+        public async Task<bool> Close(Guid queueId, Guid userId)
+        {
+            var queue = await _unitOfWork.QueueRepository.GetByIdWithDetailsAsync(queueId);
+
+            if (queue == null)
+            {
+                throw new QueueException("Queue not found");
+            }
+            if (queue.AdminId != userId)
+            {
+                throw new QueueException("Not admin of queue.");
+            }
+            
+            queue.CloseTime = DateTime.Now;
+            queue.IsOpen = false;
+            await _unitOfWork.SaveAsync();
+
+            return true;
+        }
+
         public async Task<ICollection<RecordModel>> GetRecordsInQueue(Guid queueId)
         {
             var users = (await _unitOfWork.UserInQueueRepository.GetAllAsync())
@@ -103,13 +121,7 @@ namespace IQueueBL.Services
             var records = (await _unitOfWork.RecordRepository.GetAllAsync())
                 .Where(x => x.UserQueueId == users.FirstOrDefault(x => x.QueueId == queueId).Id);
 
-            var result = new List<RecordModel>();
-            foreach (var record in records)
-            {
-                result.Add(new RecordModel { Id = record.Id, ParticipantId = record.UserQueueId, Index = record.Index });
-            }
-
-            return result;
+            return _mapper.Map<ICollection<RecordModel>>(records);
         }
 
         private void ValidateQueue(QueueModel model)
@@ -134,9 +146,6 @@ namespace IQueueBL.Services
             {
                 throw new QueueException("IsOpen can't be null value.");
             }
-
         }
-
-        
     }
 }

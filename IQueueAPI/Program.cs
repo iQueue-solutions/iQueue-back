@@ -44,6 +44,8 @@ builder.Services.AddScoped<IUserInQueueRepository, UserInQueueRepository>();
 builder.Services.AddScoped<IQueueService, QueueService>();
 builder.Services.AddScoped<IRecordService, RecordService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IParticipantService, ParticipantService>();
+
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

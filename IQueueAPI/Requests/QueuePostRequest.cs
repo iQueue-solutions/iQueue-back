@@ -1,8 +1,6 @@
-﻿using IQueueBL.Models;
+﻿namespace IQueueAPI.Requests;
 
-namespace IQueueAPI.Models;
-
-public class QueuePostViewModel
+public class QueuePostRequest
 {
     /// <summary>
     /// Name of Queue.
