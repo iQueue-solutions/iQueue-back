@@ -12,11 +12,19 @@ public class AutoMapperProfile : Profile
         CreateMap<Queue, QueueModel>();
 
         CreateMap<QueueModel, Queue>();
+
+        CreateMap<Record, RecordModel>()
+            .ForMember(rm => rm.UserId, r => r.MapFrom(x => x.UserQueue.UserId))
+            .ForMember(rm => rm.QueueId, r => r.MapFrom(x => x.UserQueue.QueueId))
+            .ForMember(rm => rm.ParticipantId, r => r.MapFrom(x => x.UserQueue.Id));
         
-        CreateMap<Record, RecordModel>();
+        CreateMap<RecordModel, Record>()
+            .ForMember(r => r.UserQueueId, rm => rm.MapFrom(x => x.ParticipantId));
 
-        CreateMap<RecordModel, Record>();
-
+        CreateMap<UserInQueue, ParticipantModel>();
+        
+        CreateMap<ParticipantModel, UserInQueue>();
+        
         CreateMap<User, UserModel>()
             .ForMember(um => um.RecordsIds, u => u.MapFrom(x => x.UserInQueues.Select(r => r.Id)));
 

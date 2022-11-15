@@ -13,26 +13,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IQueueAPI/Models/OpenQueueRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_30_PM_[Changes]/.suo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_30_PM_[Changes]/iqueueapp.metadata.v5.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_30_PM_[Changes]/iqueueapp.projects.v5.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_30_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_30_PM__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/IQueueAPI/Requests/CloseQueueRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/2f1a43d3-fdb9-4ba8-bca7-6aad4b74f07b.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/5eaca61d-0474-4385-8d1b-afb022f497fa.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/93398ffe-ca8d-4990-9f9c-1a67324ea68f.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - FTP.pubxml.user" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - FTP.pubxml.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/OpenQueueRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Requests/OpenQueueRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/ParticipantPostViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Requests/ParticipantPostRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/QueuePostViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Requests/QueuePostRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/RecordPostViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Requests/RecordPostRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/UserPostViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Requests/UserPostRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/AutoMapper/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/AutoMapper/AutoMapperProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Models/RecordModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Models/RecordModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IRecordRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IRecordRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/RecordRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/RecordRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +142,9 @@
       <workItem from="1667143374210" duration="15000" />
       <workItem from="1667156789774" duration="106000" />
       <workItem from="1667314632280" duration="33000" />
-      <workItem from="1667990961938" duration="2516000" />
+      <workItem from="1667990961938" duration="2673000" />
+      <workItem from="1668065612091" duration="26000" />
+      <workItem from="1668496610561" duration="4150000" />
     </task>
     <task id="LOCAL-00001" summary="Update Queue. Update POST.">
       <created>1666870163357</created>
@@ -158,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666872223133</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add queue open endpoint.">
+      <created>1667993760692</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667993760692</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +190,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Update Queue. Update POST." />
     <MESSAGE value="Change lab number to string." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change lab number to string." />
+    <MESSAGE value="Add queue open endpoint." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add queue open endpoint." />
   </component>
 </project>

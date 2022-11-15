@@ -1,6 +1,6 @@
-﻿namespace IQueueAPI.Models
+﻿namespace IQueueAPI.Requests
 {
-    public class ParticipantPostViewModel
+    public class ParticipantPostRequest
     {
         /// <summary>
         /// Id of entered used.

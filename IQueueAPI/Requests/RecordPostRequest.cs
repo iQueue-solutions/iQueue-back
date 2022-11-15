@@ -1,6 +1,6 @@
-﻿namespace IQueueAPI.Models;
+﻿namespace IQueueAPI.Requests;
 
-public class RecordPostViewModel
+public class RecordPostRequest
 {
 
     /// <summary>

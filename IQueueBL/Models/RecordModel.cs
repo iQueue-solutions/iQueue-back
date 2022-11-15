@@ -10,10 +10,21 @@ public class RecordModel
     /// </summary>
     public Guid Id { get; set; }
 
+    
     /// <summary>
     /// User In queue Id.
     /// </summary>
     public Guid ParticipantId { get; set; }
+    
+    /// <summary>
+    /// User Id.
+    /// </summary>
+    public Guid UserId { get; set; }
+    
+    /// <summary>
+    /// Queue Id.
+    /// </summary>
+    public Guid QueueId { get; set; }
 
     /// <summary>
     /// Number of laboratory work.

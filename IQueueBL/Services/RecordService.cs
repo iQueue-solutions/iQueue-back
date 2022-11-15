@@ -89,10 +89,10 @@ namespace IQueueBL.Services
             if (queue.QueueUsers.Count >= queue.MaxRecordNumber)
             {
                 throw new QueueException("Max records achieved");
-            } 
+            }
 
-            var records = (await _unitOfWork.RecordRepository.GetAllAsync())
-                .Where(x => x.UserQueue.QueueId == queue.Id);
+            var recordsAll = (await _unitOfWork.RecordRepository.GetAllWithDetailsAsync());
+            var records   = recordsAll.Where(x => x.UserQueue.QueueId == queue.Id);
             if (records.FirstOrDefault(x => x.Index == model.Index) != null)
             {
                 throw new QueueException("This place has been already taken");

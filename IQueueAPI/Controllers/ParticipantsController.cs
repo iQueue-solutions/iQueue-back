@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using IQueueAPI.Models;
+using IQueueAPI.Requests;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
@@ -42,7 +42,7 @@ namespace IQueueAPI.Controllers
 
         // POST: api/Participants
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] ParticipantPostViewModel value)
+        public async Task<ActionResult> Post([FromBody] ParticipantPostRequest value)
         {
             try
             {
@@ -73,41 +73,6 @@ namespace IQueueAPI.Controllers
             }
         }
 
-
-        [HttpPost("{id:guid}/add-participants")]
-        public async Task<ActionResult> AddUsersInQueue(Guid id, [FromBody] IEnumerable<Guid> usersIds)
-        {
-            try
-            {
-                await _participantService.AddUsersInQueueAsync(id, usersIds);
-                return Ok();
-            }
-            catch (ParticipantException e)
-            {
-                return BadRequest($"Exception: {e.Message}");
-            }
-        }
-
-        [HttpDelete("{id:guid}/delete-participants")]
-        public async Task<ActionResult> DeleteUsersFromQueue(Guid id, [FromBody] IEnumerable<Guid> usersIds)
-        {
-            try
-            {
-                await _participantService.DeleteUsersFromQueueAsync(id, usersIds);
-                return Ok();
-            }
-            catch (QueueException e)
-            {
-                return BadRequest($"Exception: {e.Message}");
-            }
-        }
-
-        [HttpGet("{id:guid}/participants")]
-        public async Task<ActionResult> GetQueueParticipantsIds(Guid id)
-        {
-            return Ok(await _participantService.GetParticipantsIds(id));
-        }
-
         // DELETE: api/Queues/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult> Delete(Guid id)
@@ -122,5 +87,42 @@ namespace IQueueAPI.Controllers
                 return BadRequest($"Exception: {e.Message}");
             }
         }
+        
+        #region Check if nessessary
+        // [HttpPost("{id:guid}/add-participants")]
+        // public async Task<ActionResult> AddUsersInQueue(Guid id, [FromBody] IEnumerable<Guid> usersIds)
+        // {
+        //     try
+        //     {
+        //         await _participantService.AddUsersInQueueAsync(id, usersIds);
+        //         return Ok();
+        //     }
+        //     catch (ParticipantException e)
+        //     {
+        //         return BadRequest($"Exception: {e.Message}");
+        //     }
+        // }
+        //
+        // [HttpDelete("{id:guid}/delete-participants")]
+        // public async Task<ActionResult> DeleteUsersFromQueue(Guid id, [FromBody] IEnumerable<Guid> usersIds)
+        // {
+        //     try
+        //     {
+        //         await _participantService.DeleteUsersFromQueueAsync(id, usersIds);
+        //         return Ok();
+        //     }
+        //     catch (QueueException e)
+        //     {
+        //         return BadRequest($"Exception: {e.Message}");
+        //     }
+        // }
+        //
+        // [HttpGet("{id:guid}/participants")]
+        // public async Task<ActionResult> GetQueueParticipantsIds(Guid id)
+        // {
+        //     return Ok(await _participantService.GetParticipantsIds(id));
+        // }
+        
+        #endregion
     }
 }

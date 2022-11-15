@@ -39,11 +39,21 @@ namespace IQueueData.Repositories
             var result = await _queueDbContext.Records.ToListAsync();
             return result;
         }
-                
+        
+        
+        public async Task<IEnumerable<Record>> GetAllWithDetailsAsync()
+        {
+            var result = await _queueDbContext.Records
+                .Include(x => x.UserQueue)
+                .ToListAsync();
+            return result;
+        }   
 
         public async Task<Record> GetByIdAsync(Guid id)
         {
-            return (await _queueDbContext.Records.FirstOrDefaultAsync(x => x.Id == id))!;
+            return (await _queueDbContext.Records
+                .Include(x => x.UserQueue)
+                .FirstOrDefaultAsync(x => x.Id == id))!;
         }
        
 

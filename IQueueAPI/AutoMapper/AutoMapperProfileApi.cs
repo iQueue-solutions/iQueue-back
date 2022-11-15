@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using IQueueAPI.Models;
+using IQueueAPI.Requests;
 using IQueueBL.Models;
 
 namespace IQueueAPI.AutoMapper;
@@ -8,17 +8,16 @@ public class AutoMapperProfileApi : Profile
 {
     public AutoMapperProfileApi()
     {
-        CreateMap<QueuePostViewModel, QueueModel>();
-            
+        CreateMap<QueuePostRequest, QueueModel>();
+        
+        CreateMap<QueueModel, QueuePostRequest>();
 
-        CreateMap<QueueModel, QueuePostViewModel>();
+        CreateMap<RecordModel, RecordPostRequest>();
 
-        CreateMap<RecordModel, RecordPostViewModel>();
+        CreateMap<RecordPostRequest, RecordModel>();
 
-        CreateMap<RecordPostViewModel, RecordModel>();
+        CreateMap<UserModel, UserPostRequest>();
 
-        CreateMap<UserModel, UserPostViewModel>();
-
-        CreateMap<UserPostViewModel, UserModel>();
+        CreateMap<UserPostRequest, UserModel>();
     }
 }

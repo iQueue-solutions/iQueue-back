@@ -1,6 +1,6 @@
-﻿namespace IQueueAPI.Models;
+﻿namespace IQueueAPI.Requests;
 
-public class UserPostViewModel
+public class UserPostRequest
 {
     /// <summary>
     /// First name of the user.

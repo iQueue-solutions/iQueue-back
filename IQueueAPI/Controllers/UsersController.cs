@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using IQueueAPI.Models;
+using IQueueAPI.Requests;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
@@ -42,7 +42,7 @@ namespace IQueueAPI.Controllers
 
         // POST: api/Users
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] UserPostViewModel value)
+        public async Task<ActionResult> Post([FromBody] UserPostRequest value)
         {
             try
             {
