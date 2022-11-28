@@ -24,7 +24,7 @@ namespace IQueueAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<QueueModel>>> Get()
         {
-            return Ok(await _queueService.GetAllAsync());
+            return Ok(await _queueService.GetAllWithParticipantsAsync());
         }
 
         // GET: api/Queues/3bb3e74d-15f8-4efa-bf89-ef5390f9927b

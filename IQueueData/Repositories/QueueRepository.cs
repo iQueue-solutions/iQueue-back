@@ -51,8 +51,8 @@ namespace IQueueData.Repositories
         public async Task<Queue> GetByIdWithDetailsAsync(Guid id)
         {
             return await _queueDbContext.Queues                
-                .Include(x => x.QueueUsers).
-                FirstOrDefaultAsync(x => x.Id.Equals(id));
+                .Include(x => x.QueueUsers)
+                .FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 
         public void Update(Queue entity)

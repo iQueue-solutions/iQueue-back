@@ -13,26 +13,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IQueueAPI/Requests/CloseQueueRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/868b7d02-73cb-4126-8c7b-5ece6936277d.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/OpenQueueRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Requests/OpenQueueRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/ParticipantPostViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Requests/ParticipantPostRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/QueuePostViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Requests/QueuePostRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/RecordPostViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Requests/RecordPostRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Models/UserPostViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Requests/UserPostRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/AutoMapper/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/AutoMapper/AutoMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Models/RecordModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Models/RecordModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IRecordRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IRecordRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/RecordRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/RecordRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +133,9 @@
       <workItem from="1667314632280" duration="33000" />
       <workItem from="1667990961938" duration="2673000" />
       <workItem from="1668065612091" duration="26000" />
-      <workItem from="1668496610561" duration="4150000" />
+      <workItem from="1668496610561" duration="4330000" />
+      <workItem from="1669537928797" duration="35000" />
+      <workItem from="1669544221567" duration="698000" />
     </task>
     <task id="LOCAL-00001" summary="Update Queue. Update POST.">
       <created>1666870163357</created>
@@ -167,7 +158,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667993760692</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add queue close.">
+      <created>1668501325003</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668501325003</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Refactor participants and records.">
+      <created>1668501362605</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668501362605</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +196,8 @@
     <MESSAGE value="Update Queue. Update POST." />
     <MESSAGE value="Change lab number to string." />
     <MESSAGE value="Add queue open endpoint." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add queue open endpoint." />
+    <MESSAGE value="Add queue close." />
+    <MESSAGE value="Refactor participants and records." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor participants and records." />
   </component>
 </project>

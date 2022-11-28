@@ -37,7 +37,7 @@ public class UserInQueueRepository : IUserInQueueRepository
 
     public async Task<IEnumerable<UserInQueue>> GetAllAsync()
     {
-        return await _queueDbContext.UserQueueCollection.ToListAsync();
+        return await _queueDbContext.UserQueueCollection.Include(x => x.Queue).ToListAsync();
     }
                 
 

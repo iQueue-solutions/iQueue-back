@@ -9,4 +9,6 @@ public interface IQueueService : ICrud<QueueModel>
     public Task<bool> Close(Guid queueId, Guid userId);
 
     public Task<ICollection<RecordModel>> GetRecordsInQueue(Guid queueId);
+
+    public Task<IEnumerable<QueueModel>> GetAllWithParticipantsAsync();
 }

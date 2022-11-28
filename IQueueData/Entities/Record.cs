@@ -14,7 +14,7 @@ namespace IQueueData.Entities
         /// <summary>
         /// User in queue.
         /// </summary>
-        public UserInQueue UserQueue { get; set; }
+        public UserInQueue? UserQueue { get; set; }
         
         /// <summary>
         /// Number of laboratory work.

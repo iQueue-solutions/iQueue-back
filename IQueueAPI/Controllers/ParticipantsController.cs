@@ -48,13 +48,22 @@ namespace IQueueAPI.Controllers
             {
                 var participant = _mapper.Map<ParticipantModel>(value);                
                 var id = await _participantService.AddAsync(participant);
-                return CreatedAtAction(nameof(Get), id);
+                return Ok(id);
             }
             catch (ParticipantException e)
             {
                 return BadRequest($"Exception: {e.Message}");
             }
         }
+
+        [HttpPost("collection")]
+        public async Task<ActionResult> PostCollection(Guid queueId, IEnumerable<Guid> userIds)
+        {
+            await _participantService.AddUsersInQueueAsync(queueId, userIds);
+
+            return Ok();
+        }
+
 
         // PUT: api/Queues/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
         [HttpPut("{id:guid}")]
