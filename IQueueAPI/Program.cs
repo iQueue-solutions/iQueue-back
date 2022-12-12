@@ -10,6 +10,7 @@ using IQueueData;
 using IQueueData.Interfaces;
 using IQueueData.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -17,7 +18,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(config =>
+    {
+        config.RespectBrowserAcceptHeader = true;
+        config.ReturnHttpNotAcceptable = true;
+    })
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+    });
+
 var connStr = builder.Configuration.GetConnectionString("QueueDb");
 builder.Services.AddDbContext<QueueDbContext>(options => options.UseSqlServer(connStr));
 
@@ -57,22 +67,28 @@ builder.Services.AddSingleton(new TokenHelper(builder.Configuration));
 
 builder.Services.ConfigureSwagger();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+var jwtSettings = builder.Configuration.GetSection("AccessToken");
+var secretKey = jwtSettings.GetSection("Secret").Value;
+builder.Services.AddAuthentication(opt =>
+    {
+        opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; 
+        opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    }) 
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration.GetSection("AccessToken:Issuer").Value,
-            ValidAudience = builder.Configuration.GetSection("AccessToken:Audience").Value,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                builder.Configuration.GetSection("AccessToken:Secret").Value)),
+            ValidateIssuer = true, 
+            ValidateAudience = false, 
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true, 
+            ValidIssuer = jwtSettings.GetSection("Issuer").Value,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
         };
     });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthentication();
+
 
 var app = builder.Build();
 
@@ -83,9 +99,13 @@ app.UseSwagger();
 app.UseSwaggerUI();
 //}
 
-app.UseCors("policyforall");
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
+
+app.UseCors("CorsPolicy");
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions { ForwardedHeaders = ForwardedHeaders.All });
 
 app.UseAuthentication();
 
