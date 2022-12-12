@@ -12,18 +12,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IQueueBL/Helpers/PasswordHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IQueueBL/Helpers/TokenHelper.cs" afterDir="false" />
+    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="Add register and login to services.">
+      <change afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IQueueAPI/Requests/UserLoginRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IQueueAPI/Requests/UserRegisterRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Models/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Models/UserModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Entities/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/QueueDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/QueueDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +34,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b9a533b55d9a3c0765407ed0dd18b43332ea208c5a7057dbcf33a8d6917255/TokenValidationParameters.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d1f68ef86315497c7b39ddb155d5cf3ace964abca69857f9943cd58479799/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/NURE/5semestr/AVPZ/iQueue-back/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -53,18 +50,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Local">
     <configuration name="IQueueAPI: iqueue-001-site1 - FTP" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
       <riderPublish configuration="Release" platform="Any CPU" publish_profile="iqueue-001-site1 - FTP.pubxml" pubxml_path="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - FTP.pubxml" user_name="iqueue-001" uuid_high="4824382487065936712" uuid_low="-5794824312202405735" />
@@ -140,7 +138,7 @@
       <workItem from="1669537928797" duration="35000" />
       <workItem from="1669544221567" duration="698000" />
       <workItem from="1669668332592" duration="1766000" />
-      <workItem from="1670838012944" duration="3983000" />
+      <workItem from="1670838012944" duration="5306000" />
     </task>
     <task id="LOCAL-00001" summary="Update Queue. Update POST.">
       <created>1666870163357</created>
@@ -177,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668501362605</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add register and login to services.">
+      <created>1670844211929</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670844211929</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +208,7 @@
     <MESSAGE value="Add queue open endpoint." />
     <MESSAGE value="Add queue close." />
     <MESSAGE value="Refactor participants and records." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor participants and records." />
+    <MESSAGE value="Add register and login to services." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add register and login to services." />
   </component>
 </project>

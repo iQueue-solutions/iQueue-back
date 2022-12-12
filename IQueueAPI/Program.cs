@@ -1,12 +1,16 @@
+using System.Text;
 using AutoMapper;
 using IQueueAPI.AutoMapper;
+using IQueueAPI.Extensions;
 using IQueueBL.AutoMapper;
 using IQueueBL.Interfaces;
 using IQueueBL.Services;
 using IQueueData;
 using IQueueData.Interfaces;
 using IQueueData.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,6 +53,25 @@ builder.Services.AddScoped<IParticipantService, ParticipantService>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+builder.Services.ConfigureSwagger();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration.GetSection("AccessToken:Issuer").Value,
+            ValidAudience = builder.Configuration.GetSection("AccessToken:Audience").Value,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                builder.Configuration.GetSection("AccessToken:Secret").Value)),
+        };
+    });
+
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -61,6 +84,8 @@ app.UseSwaggerUI();
 app.UseCors("policyforall");
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

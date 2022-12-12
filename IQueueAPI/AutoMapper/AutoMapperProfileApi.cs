@@ -21,5 +21,7 @@ public class AutoMapperProfileApi : Profile
         CreateMap<UserPostRequest, UserModel>();
 
         CreateMap<ParticipantPostRequest, ParticipantModel>();
+
+        CreateMap<UserRegisterRequest, UserModel>();
     }
 }
