@@ -22,6 +22,11 @@ public class UserService : IUserService
     
     public async Task RegisterAsync(UserModel model, string password)
     {
+        if (!model.Email.EndsWith("@nure.ua"))
+        {
+            throw new QueueException("Email should be in nure.ua domain");
+        }
+        
         var existingUser = await _unitOfWork.UserRepository.GetByEmailAsync(model.Email);
         if (existingUser != null)
         {
