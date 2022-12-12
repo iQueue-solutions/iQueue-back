@@ -20,6 +20,16 @@ namespace IQueueData.Entities
         /// Email of the user.
         /// </summary>
         public string? Email { get; set; }
+        
+        /// <summary>
+        /// Hashed password.
+        /// </summary>
+        public string PasswordHash { get; set; }
+
+        /// <summary>
+        /// Random password salt.
+        /// </summary>
+        public string PasswordSalt { get; set; }
 
         /// <summary>
         /// List of user groups.

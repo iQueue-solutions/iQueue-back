@@ -13,13 +13,18 @@ namespace IQueueData.Repositories
             _queueDbContext = queueDbContext;
         }
 
-        public async Task<Guid> AddAsync(User entity)
+        public async Task<User?> GetByEmailAsync(string email)
+        {
+            return await _queueDbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
+        }
+
+        public async Task<Guid> AddAsync(User? entity)
         {
             await _queueDbContext.Users.AddAsync(entity);
             return entity.Id;
         }
 
-        public async void Delete(User entity)
+        public async void Delete(User? entity)
         {
             await _queueDbContext.Queues.Where(x => x.AdminId == entity.Id).LoadAsync();
             
@@ -34,7 +39,7 @@ namespace IQueueData.Repositories
             if (entity != null) _queueDbContext.Users.Remove(entity);
         }
 
-        public async Task<IEnumerable<User>> GetAllAsync()
+        public async Task<IEnumerable<User?>> GetAllAsync()
         {
             return await _queueDbContext.Users.ToListAsync();
         }
@@ -61,7 +66,7 @@ namespace IQueueData.Repositories
                 FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 
-        public void Update(User entity)
+        public void Update(User? entity)
         {
             _queueDbContext.Users.Update(entity);
         }
