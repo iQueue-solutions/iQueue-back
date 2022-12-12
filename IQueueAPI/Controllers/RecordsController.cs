@@ -7,14 +7,16 @@ using IQueueAPI.Requests;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IQueueAPI.Controllers
 {
+    [Authorize]
     [Route("api/records")]
     [ApiController]
-    public class RecordsController : ControllerBase
+    public class RecordsController : BaseApiController
     {
         private readonly IRecordService _recordService;
         private readonly IMapper _mapper;
@@ -27,6 +29,7 @@ namespace IQueueAPI.Controllers
         
 
         // GET: api/Records/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
+        [AllowAnonymous]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<RecordModel>> Get(Guid id)
         {

@@ -3,13 +3,15 @@ using IQueueAPI.Requests;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IQueueAPI.Controllers
 {
+    [Authorize]
     [Route("api/queues")]
     [ApiController]
-    public class QueuesController : ControllerBase
+    public class QueuesController : BaseApiController
     {
         private readonly IQueueService _queueService;
         private readonly IMapper _mapper;
@@ -21,13 +23,15 @@ namespace IQueueAPI.Controllers
             _mapper = mapper;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<QueueModel>>> Get()
         {
             return Ok(await _queueService.GetAllWithParticipantsAsync());
         }
-
+        
         // GET: api/Queues/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
+        [AllowAnonymous]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<QueueModel>> Get(Guid id)
         {
@@ -40,6 +44,7 @@ namespace IQueueAPI.Controllers
             return Ok(queue);
         }
 
+        [AllowAnonymous]
         [HttpGet("{id:guid}/records")]
         public async Task<ActionResult<ICollection<RecordModel>>> GetRecordsInQueue(Guid id)
         {

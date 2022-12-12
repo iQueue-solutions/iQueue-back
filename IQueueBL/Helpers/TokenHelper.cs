@@ -23,7 +23,7 @@ public class TokenHelper
         var key = Convert.FromBase64String(secret);
 
         var claimsIdentity = new ClaimsIdentity(new[] {
-            new Claim(ClaimTypes.NameIdentifier, userId.ToString())
+            new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
         });
 
         var signingCredentials = new SigningCredentials(
@@ -34,7 +34,7 @@ public class TokenHelper
             Subject = claimsIdentity,
             Issuer = _configuration.GetSection("AccessToken:Issuer").Value,
             Audience = _configuration.GetSection("AccessToken:Audience").Value,
-            Expires = DateTime.Now.AddMinutes(15),
+            Expires = DateTime.Now.AddMonths(2),
             SigningCredentials = signingCredentials,
 
         };

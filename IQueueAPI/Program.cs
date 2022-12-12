@@ -3,6 +3,7 @@ using AutoMapper;
 using IQueueAPI.AutoMapper;
 using IQueueAPI.Extensions;
 using IQueueBL.AutoMapper;
+using IQueueBL.Helpers;
 using IQueueBL.Interfaces;
 using IQueueBL.Services;
 using IQueueData;
@@ -50,8 +51,9 @@ builder.Services.AddScoped<IRecordService, RecordService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IParticipantService, ParticipantService>();
 
-
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddSingleton(new TokenHelper(builder.Configuration));
 
 builder.Services.ConfigureSwagger();
 

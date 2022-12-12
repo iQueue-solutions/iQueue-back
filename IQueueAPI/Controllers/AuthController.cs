@@ -9,7 +9,7 @@ namespace IQueueAPI.Controllers;
 
 [Route("api/auth")]
 [ApiController]
-public class AuthController : ControllerBase
+public class AuthController : BaseApiController
 {
     private readonly IMapper _mapper;
     private readonly IUserService _userService;

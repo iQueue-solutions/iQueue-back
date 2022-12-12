@@ -3,13 +3,15 @@ using IQueueAPI.Requests;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IQueueAPI.Controllers
 {
+    [Authorize]
     [Route("api/participants")]
     [ApiController]
-    public class ParticipantsController : ControllerBase
+    public class ParticipantsController : BaseApiController
     {
         private readonly IParticipantService _participantService;
         private readonly IMapper _mapper;
@@ -21,6 +23,7 @@ namespace IQueueAPI.Controllers
             _mapper = mapper;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ParticipantModel>>> Get()
         {
@@ -28,6 +31,7 @@ namespace IQueueAPI.Controllers
         }
 
         // GET: api/Participants/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
+        [AllowAnonymous]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<ParticipantModel>> Get(Guid id)
         {
