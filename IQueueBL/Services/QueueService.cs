@@ -124,10 +124,10 @@ namespace IQueueBL.Services
 
         public async Task<ICollection<RecordModel>> GetRecordsInQueue(Guid queueId)
         {
-            var users = (await _unitOfWork.UserInQueueRepository.GetAllAsync())
-                .Where(x => x.QueueId == queueId);
+            var participants = (await _unitOfWork.UserInQueueRepository.GetAllAsync());
+            var queueParticipants = participants.Where(x => x.QueueId == queueId);
             var records = (await _unitOfWork.RecordRepository.GetAllAsync())
-                .Where(x => x.UserQueueId == users.FirstOrDefault(x => x.QueueId == queueId)?.Id);
+                .Where(x => x.UserQueueId == queueParticipants.FirstOrDefault(y => y.QueueId == queueId)?.Id);
 
             return _mapper.Map<ICollection<RecordModel>>(records);
         }

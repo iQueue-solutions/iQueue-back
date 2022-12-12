@@ -77,18 +77,26 @@ namespace IQueueBL.Services
             var userInQueue = await _unitOfWork.UserInQueueRepository.GetByIdAsync(model.ParticipantId);
             if (userInQueue == null)
             {
-                throw new QueueException("UserQueueId can't be null value.");
+                throw new QueueException("Participant can't be null value.");
             } 
 
             var queue = await _unitOfWork.QueueRepository.GetByIdWithDetailsAsync(userInQueue.QueueId);
-            if (queue.QueueUsers.Count >= queue.MaxRecordNumber)
+
+            var queueRecords = (await _unitOfWork.RecordRepository.GetAllWithDetailsAsync())
+                .Where(x => x.UserQueue?.QueueId == queue.Id)
+                .ToList();
+
+            if (model.Index >= queue.MaxRecordNumber)
+            {
+                throw new QueueException($"Index must be less than {queue.MaxRecordNumber} for this queue.");
+            }
+            
+            if (queueRecords.Count >= queue.MaxRecordNumber)
             {
                 throw new QueueException("Max records achieved");
             }
 
-            var recordsAll = (await _unitOfWork.RecordRepository.GetAllWithDetailsAsync());
-            var records   = recordsAll.Where(x => x.UserQueue.QueueId == queue.Id);
-            if (records.FirstOrDefault(x => x.Index == model.Index) != null)
+            if (queueRecords.FirstOrDefault(x => x.Index == model.Index) != null)
             {
                 throw new QueueException("This place has been already taken");
             }
