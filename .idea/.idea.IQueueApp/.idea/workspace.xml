@@ -13,15 +13,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/IQueueBL/Models/ErrorModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/2/f/2fa1846e5bdcdd9f542dee92483f54991a5b6a2e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/b/6/b6e643495947cb6caca0e0dd0e14fbc3e528d190" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/868b7d02-73cb-4126-8c7b-5ece6936277d.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/0e872315-1628-47eb-9b21-afa54f29c1dc.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/8cfd79ec-de3c-4079-a460-75b9ff9a1c68.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/d9c9c7c3-a6fd-4a2f-9aca-5138e27b1266.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/f02cd696-e004-4aed-8116-975e5ba4f473.vsidx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - Web Deploy1.pubxml.user" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - Web Deploy1.pubxml.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IParticipantService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IParticipantService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/ParticipantService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/ParticipantService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +146,7 @@
       <workItem from="1668496610561" duration="4330000" />
       <workItem from="1669537928797" duration="35000" />
       <workItem from="1669544221567" duration="698000" />
+      <workItem from="1669668332592" duration="1766000" />
     </task>
     <task id="LOCAL-00001" summary="Update Queue. Update POST.">
       <created>1666870163357</created>

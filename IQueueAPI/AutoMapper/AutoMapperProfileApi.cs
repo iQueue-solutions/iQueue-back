@@ -19,6 +19,7 @@ public class AutoMapperProfileApi : Profile
         CreateMap<UserModel, UserPostRequest>();
 
         CreateMap<UserPostRequest, UserModel>();
-        
+
+        CreateMap<ParticipantPostRequest, ParticipantModel>();
     }
 }

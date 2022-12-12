@@ -50,7 +50,7 @@ namespace IQueueAPI.Controllers
                 var id = await _participantService.AddAsync(participant);
                 return Ok(id);
             }
-            catch (ParticipantException e)
+            catch (QueueException e)
             {
                 return BadRequest($"Exception: {e.Message}");
             }
@@ -59,7 +59,9 @@ namespace IQueueAPI.Controllers
         [HttpPost("collection")]
         public async Task<ActionResult> PostCollection(Guid queueId, IEnumerable<Guid> userIds)
         {
-            await _participantService.AddUsersInQueueAsync(queueId, userIds);
+            var result = await _participantService.AddUsersInQueueAsync(queueId, userIds);
+            if (!result.Success)
+                return BadRequest(result.Errors);
 
             return Ok();
         }
@@ -76,7 +78,7 @@ namespace IQueueAPI.Controllers
                 await _participantService.UpdateAsync(value);
                 return Ok(value);
             }
-            catch (ParticipantException e)
+            catch (QueueException e)
             {
                 return BadRequest($"Exception: {e.Message}");
             }
@@ -91,7 +93,7 @@ namespace IQueueAPI.Controllers
                 await _participantService.DeleteAsync(id);
                 return NoContent();
             }
-            catch (ParticipantException e)
+            catch (QueueException e)
             {
                 return BadRequest($"Exception: {e.Message}");
             }
