@@ -19,21 +19,28 @@ public class SwitchRequestService : ISwitchRequestService
 
     public async Task<IEnumerable<SwitchRequestModel>> GetSwitchRequests(Guid userId)
     {
-        var k = await _unitOfWork.SwitchRequestRepository.GetAllAsync();
+        var requests = await _unitOfWork.SwitchRequestRepository.GetAllAsync();
 
-        var v = k.Where(x => x.SwitchWithRecord?.UserQueue?.UserId == userId);
+        var users = requests.Where(x => x.SwitchWithRecord?.UserQueue?.UserId == userId);
 
-        var q = v.Where(x => x.IsAccepted is null);
+        var notConfirmed = users.Where(x => x.IsAccepted is null);
 
-        return _mapper.Map<IEnumerable<SwitchRequestModel>>(q);
+        return _mapper.Map<IEnumerable<SwitchRequestModel>>(notConfirmed);
     }
 
     public async Task AnswerSwitchRequest(Guid requestId, bool answer)
     {
         var request = await _unitOfWork.SwitchRequestRepository.GetByIdAsync(requestId);
-        if (request != null)
+        if (request == null) return;
+        
+        request.IsAccepted = answer;
+        await _unitOfWork.SaveAsync();
+        
+        if (request.IsAccepted == true && request.Record != null && request.SwitchWithRecord != null)
         {
-            request.IsAccepted = answer;
+            (request.Record.Index, request.SwitchWithRecord.Index) = 
+                (request.SwitchWithRecord.Index, request.Record.Index);
+            await _unitOfWork.SaveAsync();
         }
     }
 

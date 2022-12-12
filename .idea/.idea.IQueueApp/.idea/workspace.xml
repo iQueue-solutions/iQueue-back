@@ -12,17 +12,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="Add SwitchRequestService.">
-      <change afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/SwitchRequestsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IQueueAPI/Requests/AnswerSwitchRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IRecordService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" afterDir="false" />
+    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="Update get queue get records.">
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/SwitchRequestService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/SwitchRequestService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670873996107</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Update get queue get records.">
+      <created>1670877672612</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670877672612</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +284,8 @@
     <MESSAGE value="Update record validation." />
     <MESSAGE value="Add SwitchRequest to database." />
     <MESSAGE value="Add SwitchRequestService." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add SwitchRequestService." />
+    <MESSAGE value="Update get queue get records." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update get queue get records." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -303,19 +302,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/IQueueBL/Services/SwitchRequestService.cs</url>
-          <line>21</line>
-          <properties documentPath="D:\NURE\5semestr\AVPZ\iQueue-back\IQueueBL\Services\SwitchRequestService.cs" initialLine="21" containingFunctionPresentation="method 'GetSwitchRequests'">
-            <startOffsets>
-              <option value="545" />
-            </startOffsets>
-            <endOffsets>
-              <option value="609" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
