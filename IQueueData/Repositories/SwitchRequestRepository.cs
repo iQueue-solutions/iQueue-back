@@ -15,12 +15,22 @@ public class SwitchRequestRepository : ISwitchRequestRepository
     
     public async Task<IEnumerable<SwitchRequest>> GetAllAsync()
     {
-        return await _queueDbContext.SwitchRecords.ToListAsync();
+        return await _queueDbContext.SwitchRecords
+            .Include(x => x.Record)
+            .ThenInclude(y => y.UserQueue)
+            .Include(x => x.SwitchWithRecord)
+            .ThenInclude(y => y.UserQueue)
+            .ToListAsync();
     }
 
     public async Task<SwitchRequest?> GetByIdAsync(Guid id)
     {
-        return await _queueDbContext.SwitchRecords.FirstOrDefaultAsync(x => x.Id == id);
+        return await _queueDbContext.SwitchRecords
+            .Include(x => x.Record)
+            .ThenInclude(y => y.UserQueue)
+            .Include(x => x.SwitchWithRecord)
+            .ThenInclude(y => y.UserQueue)
+            .FirstOrDefaultAsync(x => x.Id == id);
     }
 
     public async Task<Guid> AddAsync(SwitchRequest entity)

@@ -12,34 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IQueueData/Entities/SwitchRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IQueueData/Interfaces/ISwitchRequestRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IQueueData/Repositories/SwitchRequestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Entities/Record.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Entities/Record.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IRecordRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IRecordRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221016173446_InitialTestMigration.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221016173446_InitialTestMigration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221018095028_FirstReal.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221018095028_FirstReal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221021134829_NullableAdmin.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221021134829_NullableAdmin.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221027110754_UpdateQueue.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221027110754_UpdateQueue.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221027120511_UpdateRecordLabNumber.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221027120511_UpdateRecordLabNumber.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221030110354_UserInQueue.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221030110354_UserInQueue.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/QueueDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/QueueDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/QueueDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/RecordRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/RecordRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueData/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/UnitOfWork.cs" afterDir="false" />
-    </list>
+    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="Add SwitchRequest to database." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -250,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670858248362</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add SwitchRequest to database.">
+      <created>1670872570144</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670872570144</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +264,7 @@
     <MESSAGE value="Add admin remove queue check." />
     <MESSAGE value="Add delete participants with checking admin." />
     <MESSAGE value="Update record validation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update record validation." />
+    <MESSAGE value="Add SwitchRequest to database." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add SwitchRequest to database." />
   </component>
 </project>

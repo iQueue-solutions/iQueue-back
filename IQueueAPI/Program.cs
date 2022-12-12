@@ -61,6 +61,7 @@ builder.Services.AddScoped<IQueueService, QueueService>();
 builder.Services.AddScoped<IRecordService, RecordService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IParticipantService, ParticipantService>();
+builder.Services.AddScoped<ISwitchRequestService, ISwitchRequestService>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

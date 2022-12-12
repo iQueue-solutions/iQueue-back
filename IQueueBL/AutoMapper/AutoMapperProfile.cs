@@ -30,5 +30,9 @@ public class AutoMapperProfile : Profile
             .ForMember(um => um.RecordsIds, u => u.MapFrom(x => x.UserInQueues.Select(r => r.Id)));
 
         CreateMap<UserModel, User>();
+
+        CreateMap<SwitchRequest, SwitchRequestModel>();
+        
+        CreateMap<SwitchRequestModel, SwitchRequest>();
     }
 }

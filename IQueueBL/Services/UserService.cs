@@ -117,6 +117,7 @@ public class UserService : IUserService
         await _unitOfWork.UserRepository.DeleteByIdAsync(modelId);
         await _unitOfWork.SaveAsync();
     }
+    
 
     private void ValidateUser(UserModel model)
     {

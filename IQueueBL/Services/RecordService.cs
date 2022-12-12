@@ -99,7 +99,6 @@ public class RecordService : IRecordService
         }
         
         // Case when wanted place is another
-
         var switchRequest = new SwitchRequest
         {
             RecordId = record.Id,
