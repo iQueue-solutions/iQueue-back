@@ -34,6 +34,8 @@ namespace IQueueData.Repositories
            if (entity != null) _queueDbContext.Records.Remove(entity);
         }
 
+        
+
         public async Task<IEnumerable<Record>> GetAllAsync()
         {
             var result = await _queueDbContext.Records.ToListAsync();
@@ -60,6 +62,22 @@ namespace IQueueData.Repositories
         public void Update(Record entity)
         {
             _queueDbContext.Records.Update(entity);
+        }
+
+        public void ExchangePlaces(Guid ParticipantId1, Guid ParticipantId2)
+        {
+            var record1 = _queueDbContext.Records.FirstOrDefault(x => x.UserQueueId == ParticipantId1);
+            var record2 = _queueDbContext.Records.FirstOrDefault(x => x.UserQueueId == ParticipantId2);
+            if (record1 != null && record2 != null)
+            {
+                int temp = record1.Index;
+                record1.Index = record2.Index;
+                record2.Index = temp;
+                Update(record1);
+                Update(record2);
+            }
+            
+
         }
     }
 }
