@@ -23,7 +23,7 @@ public class UserModel
     /// <summary>
     /// Email of the user.
     /// </summary>
-    public string? Email { get; set; }
+    public string Email { get; set; } = string.Empty;
 
     /// <summary>
     /// List of records of queue changes.

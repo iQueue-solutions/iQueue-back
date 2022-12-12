@@ -3,13 +3,15 @@ using IQueueAPI.Requests;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IQueueAPI.Controllers
 {
+    [Authorize]
     [Route("api/users")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseApiController
     {
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
@@ -21,6 +23,7 @@ namespace IQueueAPI.Controllers
             _mapper = mapper;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserModel>>> Get()
         {
@@ -28,6 +31,7 @@ namespace IQueueAPI.Controllers
         }
 
         // GET: api/Users/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
+        [AllowAnonymous]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<UserModel>> Get(Guid id)
         {
@@ -39,22 +43,7 @@ namespace IQueueAPI.Controllers
 
             return Ok(user);
         }
-
-        // POST: api/Users
-        [HttpPost]
-        public async Task<ActionResult> Post([FromBody] UserPostRequest value)
-        {
-            try
-            {
-                var user = _mapper.Map<UserModel>(value);
-                var id = await _userService.AddAsync(user);
-                return CreatedAtAction(nameof(Get), id );
-            }
-            catch (QueueException e)
-            {
-                return BadRequest($"Exception: {e.Message}");
-            }
-        }
+        
 
         // PUT: api/Users/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
         [HttpPut("{id:guid}")]
@@ -69,7 +58,7 @@ namespace IQueueAPI.Controllers
             }
             catch (QueueException e)
             {
-                return BadRequest($"Exception: {e.Message}");
+                return BadRequest(e.Message);
             }
         }
 
@@ -84,7 +73,7 @@ namespace IQueueAPI.Controllers
             }
             catch (QueueException e)
             {
-                return BadRequest($"Exception: {e.Message}");
+                return BadRequest(e.Message);
             }
         }
     }

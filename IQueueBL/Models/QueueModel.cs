@@ -34,7 +34,6 @@ public class QueueModel
     /// Time of Queue closing.
     /// </summary>
     public DateTime? CloseTime { get; set; }
-
     
     /// <summary>
     /// Queue open status.

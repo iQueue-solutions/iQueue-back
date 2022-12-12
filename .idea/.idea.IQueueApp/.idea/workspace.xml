@@ -12,16 +12,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/868b7d02-73cb-4126-8c7b-5ece6936277d.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" afterDir="false" />
+    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="Update record validation.">
       <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IParticipantService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IParticipantService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/ParticipantService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/ParticipantService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +30,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b9a533b55d9a3c0765407ed0dd18b43332ea208c5a7057dbcf33a8d6917255/TokenValidationParameters.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d1f68ef86315497c7b39ddb155d5cf3ace964abca69857f9943cd58479799/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -54,6 +49,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -136,6 +132,9 @@
       <workItem from="1668496610561" duration="4330000" />
       <workItem from="1669537928797" duration="35000" />
       <workItem from="1669544221567" duration="698000" />
+      <workItem from="1669668332592" duration="1766000" />
+      <workItem from="1670838012944" duration="9669000" />
+      <workItem from="1670852421893" duration="6264000" />
     </task>
     <task id="LOCAL-00001" summary="Update Queue. Update POST.">
       <created>1666870163357</created>
@@ -172,7 +171,63 @@
       <option name="project" value="LOCAL" />
       <updated>1668501362605</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add register and login to services.">
+      <created>1670844211929</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670844211929</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add Auth controller.">
+      <created>1670845507710</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670845507710</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add authorization attributes.">
+      <created>1670846340608</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670846340608</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Change token signing credentials.">
+      <created>1670849605628</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670849605628</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add domain limitation.">
+      <created>1670849645139</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670849645139</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add admin remove queue check.">
+      <created>1670853778661</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670853778661</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add delete participants with checking admin.">
+      <created>1670856419195</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670856419195</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update record validation.">
+      <created>1670858248362</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670858248362</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +253,33 @@
     <MESSAGE value="Add queue open endpoint." />
     <MESSAGE value="Add queue close." />
     <MESSAGE value="Refactor participants and records." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor participants and records." />
+    <MESSAGE value="Add register and login to services." />
+    <MESSAGE value="Add Auth controller." />
+    <MESSAGE value="Add authorization attributes." />
+    <MESSAGE value="Change token signing credentials." />
+    <MESSAGE value="Add domain limitation." />
+    <MESSAGE value="Add admin remove queue check." />
+    <MESSAGE value="Add delete participants with checking admin." />
+    <MESSAGE value="Update record validation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update record validation." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/IQueueBL/Services/RecordService.cs</url>
+          <line>71</line>
+          <properties documentPath="D:\NURE\5semestr\AVPZ\iQueue-back\IQueueBL\Services\RecordService.cs" initialLine="71" containingFunctionPresentation="method 'ValidateRecord'">
+            <startOffsets>
+              <option value="1981" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2001" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

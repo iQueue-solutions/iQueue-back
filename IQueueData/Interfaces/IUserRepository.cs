@@ -7,5 +7,7 @@ namespace IQueueData.Interfaces
         Task<IEnumerable<User>> GetAllWithDetailsAsync();
 
         Task<User> GetByIdWithDetailsAsync(Guid id);
+        
+        Task<User> GetByEmailAsync(string email);
     }
 }

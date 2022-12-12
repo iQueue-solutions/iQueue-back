@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using IQueueBL.Helpers;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
@@ -16,6 +17,59 @@ public class UserService : IUserService
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+    }
+    
+    
+    public async Task RegisterAsync(UserModel model, string password)
+    {
+        if (!model.Email.EndsWith("@nure.ua"))
+        {
+            throw new QueueException("Email should be in nure.ua domain");
+        }
+        
+        var existingUser = await _unitOfWork.UserRepository.GetByEmailAsync(model.Email);
+        if (existingUser != null)
+        {
+            throw new QueueException("User already exists");
+        }
+        
+        PasswordHelper.CreatePasswordHash(password, out byte[]  passwordHash, out byte[]  passwordSalt);
+
+        var user = new User
+        {
+            Email = model.Email,
+            PasswordHash = Convert.ToBase64String(passwordHash),
+            PasswordSalt = Convert.ToBase64String(passwordSalt),
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+        };
+
+        await _unitOfWork.UserRepository.AddAsync(user);
+
+        await _unitOfWork.SaveAsync();
+    }
+
+    public async Task<string> LoginAsync(string email, string password)
+    {
+        var user = await _unitOfWork.UserRepository.GetByEmailAsync(email);
+
+        if (user == null)
+        {
+            throw new QueueException("Email or password not corresponds.");
+        }
+        
+        var verify = PasswordHelper.VerifyPasswordHash(password, 
+            Convert.FromBase64String(user.PasswordHash), 
+            Convert.FromBase64String(user.PasswordSalt));
+
+        if (!verify)
+        {
+            throw new QueueException("Email or password not corresponds.");
+        }
+
+        var token = await TokenHelper.GenerateAccessToken(user.Id);
+
+        return token;
     }
 
     public async Task<IEnumerable<UserModel>> GetAllAsync()

@@ -11,7 +11,7 @@ namespace IQueueData
 
         public DbSet<Record> Records { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<User?> Users { get; set; }
 
         public DbSet<UserGroup> UserGroups { get; set; }
         

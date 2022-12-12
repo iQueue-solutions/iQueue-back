@@ -3,13 +3,15 @@ using IQueueAPI.Requests;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IQueueAPI.Controllers
 {
+    [Authorize]
     [Route("api/participants")]
     [ApiController]
-    public class ParticipantsController : ControllerBase
+    public class ParticipantsController : BaseApiController
     {
         private readonly IParticipantService _participantService;
         private readonly IMapper _mapper;
@@ -21,6 +23,7 @@ namespace IQueueAPI.Controllers
             _mapper = mapper;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ParticipantModel>>> Get()
         {
@@ -28,6 +31,7 @@ namespace IQueueAPI.Controllers
         }
 
         // GET: api/Participants/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
+        [AllowAnonymous]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<ParticipantModel>> Get(Guid id)
         {
@@ -50,16 +54,18 @@ namespace IQueueAPI.Controllers
                 var id = await _participantService.AddAsync(participant);
                 return Ok(id);
             }
-            catch (ParticipantException e)
+            catch (QueueException e)
             {
-                return BadRequest($"Exception: {e.Message}");
+                return BadRequest(e.Message);
             }
         }
 
         [HttpPost("collection")]
         public async Task<ActionResult> PostCollection(Guid queueId, IEnumerable<Guid> userIds)
         {
-            await _participantService.AddUsersInQueueAsync(queueId, userIds);
+            var result = await _participantService.AddUsersInQueueAsync(queueId, userIds);
+            if (!result.Success)
+                return BadRequest(result.Errors);
 
             return Ok();
         }
@@ -76,9 +82,9 @@ namespace IQueueAPI.Controllers
                 await _participantService.UpdateAsync(value);
                 return Ok(value);
             }
-            catch (ParticipantException e)
+            catch (QueueException e)
             {
-                return BadRequest($"Exception: {e.Message}");
+                return BadRequest(e.Message);
             }
         }
 
@@ -91,9 +97,23 @@ namespace IQueueAPI.Controllers
                 await _participantService.DeleteAsync(id);
                 return NoContent();
             }
-            catch (ParticipantException e)
+            catch (QueueException e)
             {
-                return BadRequest($"Exception: {e.Message}");
+                return BadRequest(e.Message);
+            }
+        }
+        
+        [HttpDelete("admin")]
+        public async Task<ActionResult> DeleteByAdmin(Guid participantId)
+        {
+            try
+            {
+                await _participantService.DeleteParticipantsAsync(participantId, UserId);
+                return NoContent();
+            }
+            catch (QueueException e)
+            {
+                return BadRequest(e.Message);
             }
         }
         

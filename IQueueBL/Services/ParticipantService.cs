@@ -4,7 +4,6 @@ using IQueueBL.Models;
 using IQueueBL.Validation;
 using IQueueData.Entities;
 using IQueueData.Interfaces;
-using Queue = IQueueData.Entities.Queue;
 
 namespace IQueueBL.Services
 {
@@ -21,22 +20,29 @@ namespace IQueueBL.Services
 
         public async Task<Guid> AddAsync(ParticipantModel model)
         {
-            ValidateParticipant(model);
-
+            if ((await _unitOfWork.UserInQueueRepository.GetAllAsync()).FirstOrDefault(x =>
+                    x.QueueId == model.QueueId && x.UserId == model.UserId) != null)
+            {
+                throw new QueueException("User already in queue.");
+            }
+            
             var participant = _mapper.Map<UserInQueue>(model);
             var id = await _unitOfWork.UserInQueueRepository.AddAsync(participant);
             await _unitOfWork.SaveAsync();
             return id;
         }
 
-        public async Task AddUsersInQueueAsync(Guid queueId, IEnumerable<Guid> usersIds)
+        public async Task<ErrorModel> AddUsersInQueueAsync(Guid queueId, IEnumerable<Guid> usersIds)
         {
+            var result = new ErrorModel { Success = true, Errors = new List<string>() };
             foreach (var userId in usersIds)
             {
                 var userInQueue = (await _unitOfWork.UserInQueueRepository.GetAllAsync())
                     .FirstOrDefault(x => x.QueueId == queueId && x.UserId == userId);
                 if (userInQueue != null)
                 {
+                    result.Success = false;
+                    result.Errors.Add($"User {userInQueue.UserId} is already in queue {userInQueue.QueueId}");
                     continue;
                 }
 
@@ -44,29 +50,23 @@ namespace IQueueBL.Services
                 await _unitOfWork.UserInQueueRepository.AddAsync(userInQueue);
                 await _unitOfWork.SaveAsync();
             }
+
+            return result;
         }
 
         public async Task DeleteAsync(Guid modelId)
         {
-            if (await GetByIdAsync(modelId) == null)
-            {
-                throw new ParticipantException("User wasn't found");
-            }
-
             await _unitOfWork.UserInQueueRepository.DeleteByIdAsync(modelId);
             await _unitOfWork.SaveAsync();
         }
 
-        public async Task DeleteUsersFromQueueAsync(Guid queueId, IEnumerable<Guid> usersIds)
+        public async Task DeleteParticipantsAsync(Guid participantId, Guid adminId)
         {
-            foreach (var userId in usersIds)
+            var participant = await _unitOfWork.UserInQueueRepository.GetByIdAsync(participantId);
+            if (participant != null && participant.Queue?.AdminId == adminId)
             {
-                var userInQueue = (await _unitOfWork.UserInQueueRepository.GetAllAsync())
-                    .FirstOrDefault(x => x.QueueId == queueId && x.UserId == userId);
-
-                if (userInQueue != null) await _unitOfWork.UserInQueueRepository.DeleteByIdAsync(userInQueue.Id);
+                await DeleteAsync(participantId);
             }
-            await _unitOfWork.SaveAsync();
         }
 
         public async Task<IEnumerable<ParticipantModel>> GetAllAsync()
@@ -97,29 +97,11 @@ namespace IQueueBL.Services
 
         public async Task UpdateAsync(ParticipantModel model)
         {
-            ValidateParticipant(model);
-
             var participant = _mapper.Map<UserInQueue>(model);
 
             _unitOfWork.UserInQueueRepository.Update(participant);
             await _unitOfWork.SaveAsync();
         }
-
-        private void ValidateParticipant(ParticipantModel model)
-        {
-            if (string.IsNullOrEmpty(model.Id.ToString()))
-            {
-                throw new ParticipantException("Id can't be null value.");
-            }
-            if (string.IsNullOrEmpty(model.UserId.ToString()))
-            {
-                throw new ParticipantException("UserId can't be null value.");
-            }
-            if (string.IsNullOrEmpty(model.QueueId.ToString()))
-            {
-                throw new ParticipantException("QueueId can't be null value.");
-            }           
-
-        }
+        
     }
 }
