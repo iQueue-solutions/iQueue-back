@@ -56,7 +56,7 @@ namespace IQueueAPI.Controllers
             }
             catch (QueueException e)
             {
-                return BadRequest($"Exception: {e.Message}");
+                return BadRequest(e.Message);
             }
         }
 
@@ -84,7 +84,7 @@ namespace IQueueAPI.Controllers
             }
             catch (QueueException e)
             {
-                return BadRequest($"Exception: {e.Message}");
+                return BadRequest(e.Message);
             }
         }
 
@@ -99,7 +99,7 @@ namespace IQueueAPI.Controllers
             }
             catch (QueueException e)
             {
-                return BadRequest($"Exception: {e.Message}");
+                return BadRequest(e.Message);
             }
         }
         

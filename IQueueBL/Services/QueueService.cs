@@ -45,7 +45,24 @@ namespace IQueueBL.Services
             var queues = await _unitOfWork.QueueRepository.GetAllWithDetailsAsync();
             return _mapper.Map<IEnumerable<QueueModel>>(queues);
         }
-        
+
+        public async Task DeleteAsync(Guid queueId, Guid userId)
+        {
+            var queue = await _unitOfWork.QueueRepository.GetByIdWithDetailsAsync(queueId);
+
+            if (queue == null)
+            {
+                throw new QueueException("Queue not found");
+            }
+            if (queue.AdminId != userId)
+            {
+                throw new QueueException("Not admin of queue.");
+            }
+            
+            await _unitOfWork.QueueRepository.DeleteByIdAsync(queueId);
+            await _unitOfWork.SaveAsync();
+        }
+
         public async Task<IEnumerable<QueueModel>> GetAllWithParticipantsAsync()
         {
             var queues = await _unitOfWork.QueueRepository.GetAllWithDetailsAsync();
@@ -68,7 +85,7 @@ namespace IQueueBL.Services
             await _unitOfWork.SaveAsync();
         }       
 
-        public async Task<bool> Open(Guid queueId, Guid userId, DateTime closeTime)
+        public async Task Open(Guid queueId, Guid userId)
         {
             var queue = await _unitOfWork.QueueRepository.GetByIdWithDetailsAsync(queueId);
 
@@ -81,20 +98,13 @@ namespace IQueueBL.Services
                 throw new QueueException("Not admin of queue.");
             }
 
-            if (DateTime.Now >= closeTime)
-            {
-                return false;
-            }
-
             queue.OpenTime = DateTime.Now;
-            queue.CloseTime = closeTime;
+            queue.CloseTime = DateTime.Now + TimeSpan.FromDays(7);
             queue.IsOpen = true;
             await _unitOfWork.SaveAsync();
-
-            return true;
         }
 
-        public async Task<bool> Close(Guid queueId, Guid userId)
+        public async Task Close(Guid queueId, Guid userId)
         {
             var queue = await _unitOfWork.QueueRepository.GetByIdWithDetailsAsync(queueId);
 
@@ -110,8 +120,6 @@ namespace IQueueBL.Services
             queue.CloseTime = DateTime.Now;
             queue.IsOpen = false;
             await _unitOfWork.SaveAsync();
-
-            return true;
         }
 
         public async Task<ICollection<RecordModel>> GetRecordsInQueue(Guid queueId)

@@ -13,12 +13,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Helpers/TokenHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Helpers/TokenHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/2c42d5b1-39f1-45bf-9ca7-93c817221f24.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/612b2ebb-2dd3-47a4-a24b-1f3199cc5f29.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/9bd2f6fa-3ddd-4cc0-8d36-7e15a6c6182b.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/dde83f3e-74c2-49f5-8678-c3f89d6bd645.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - Web Deploy1.pubxml.user" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - Web Deploy1.pubxml.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Requests/CloseQueueRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Requests/OpenQueueRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Models/QueueModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Models/QueueModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +51,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b9a533b55d9a3c0765407ed0dd18b43332ea208c5a7057dbcf33a8d6917255/TokenValidationParameters.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d1f68ef86315497c7b39ddb155d5cf3ace964abca69857f9943cd58479799/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/NURE/5semestr/AVPZ/iQueue-back/IQueueAPI/AutoMapper/AutoMapperProfileApi.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/NURE/5semestr/AVPZ/iQueue-back/IQueueBL/Helpers/TokenHelper.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -138,7 +152,8 @@
       <workItem from="1669537928797" duration="35000" />
       <workItem from="1669544221567" duration="698000" />
       <workItem from="1669668332592" duration="1766000" />
-      <workItem from="1670838012944" duration="9542000" />
+      <workItem from="1670838012944" duration="9669000" />
+      <workItem from="1670852421893" duration="833000" />
     </task>
     <task id="LOCAL-00001" summary="Update Queue. Update POST.">
       <created>1666870163357</created>
@@ -196,7 +211,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670846340608</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Change token signing credentials.">
+      <created>1670849605628</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670849605628</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add domain limitation.">
+      <created>1670849645139</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670849645139</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +254,8 @@
     <MESSAGE value="Add register and login to services." />
     <MESSAGE value="Add Auth controller." />
     <MESSAGE value="Add authorization attributes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add authorization attributes." />
+    <MESSAGE value="Change token signing credentials." />
+    <MESSAGE value="Add domain limitation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add domain limitation." />
   </component>
 </project>
