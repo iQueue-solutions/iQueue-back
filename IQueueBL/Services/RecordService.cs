@@ -66,7 +66,7 @@ public class RecordService : IRecordService
     }
 
 
-    public async Task ExchangeRecord(Guid recordId, int newIndex)
+    public async Task<bool> ExchangeRecord(Guid recordId, int newIndex)
     {
         var record = await _unitOfWork.RecordRepository.GetByIdAsync(recordId);
         if (record == null)
@@ -82,9 +82,8 @@ public class RecordService : IRecordService
         if (newPlace == null)
         {
             record.Index = newIndex;
-            var model = _mapper.Map<RecordModel>(record);
-            await UpdateAsync(model);
-            return;
+            await _unitOfWork.SaveAsync();
+            return true;
         }
         
         // Case when wanted place is self
@@ -92,10 +91,9 @@ public class RecordService : IRecordService
         {
             newPlace.Index = record.Index;
             record.Index = newIndex;
-            var model = _mapper.Map<RecordModel>(record);
-            await UpdateAsync(model);
-            var otherModel = _mapper.Map<RecordModel>(newPlace);
-            await UpdateAsync(otherModel);
+            _unitOfWork.RecordRepository.Update(record);
+            _unitOfWork.RecordRepository.Update(newPlace);
+            return true;
         }
         
         // Case when wanted place is another
@@ -107,6 +105,7 @@ public class RecordService : IRecordService
 
         await _unitOfWork.SwitchRequestRepository.AddAsync(switchRequest);
         await _unitOfWork.SaveAsync();
+        return false;
     }
 
 

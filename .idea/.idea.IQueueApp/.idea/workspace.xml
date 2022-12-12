@@ -12,7 +12,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="Add SwitchRequest to database." />
+    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="Add SwitchRequestService.">
+      <change afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/SwitchRequestsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IQueueAPI/Requests/AnswerSwitchRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IRecordService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +38,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b9a533b55d9a3c0765407ed0dd18b43332ea208c5a7057dbcf33a8d6917255/TokenValidationParameters.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/af16a857fa2cb98cf5e81784b69dc7ad434bcfb8e6fe27442a46beb9113d2c/InternalDbSet.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/af5e8f58e0cd43a56f652468b1080bbdbf4276e50cddad25571e6f22556715/EntityFrameworkQueryableExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d1f68ef86315497c7b39ddb155d5cf3ace964abca69857f9943cd58479799/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -230,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670872570144</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add SwitchRequestService.">
+      <created>1670873996107</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670873996107</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +285,39 @@
     <MESSAGE value="Add delete participants with checking admin." />
     <MESSAGE value="Update record validation." />
     <MESSAGE value="Add SwitchRequest to database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add SwitchRequest to database." />
+    <MESSAGE value="Add SwitchRequestService." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add SwitchRequestService." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/IQueueBL/Services/RecordService.cs</url>
+          <line>35</line>
+          <properties documentPath="D:\NURE\5semestr\AVPZ\iQueue-back\IQueueBL\Services\RecordService.cs" initialLine="35" containingFunctionPresentation="method 'UpdateAsync'">
+            <startOffsets>
+              <option value="930" />
+            </startOffsets>
+            <endOffsets>
+              <option value="958" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/IQueueBL/Services/SwitchRequestService.cs</url>
+          <line>21</line>
+          <properties documentPath="D:\NURE\5semestr\AVPZ\iQueue-back\IQueueBL\Services\SwitchRequestService.cs" initialLine="21" containingFunctionPresentation="method 'GetSwitchRequests'">
+            <startOffsets>
+              <option value="545" />
+            </startOffsets>
+            <endOffsets>
+              <option value="609" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

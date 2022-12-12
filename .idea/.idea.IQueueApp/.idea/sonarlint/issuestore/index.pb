@@ -3,8 +3,6 @@ S
 #IQueueBL/Models/ParticipantModel.cs,5\0\50d9c9998cfb67c4f48c9cedfd5f38c4967ac248
 \
 ,IQueueAPI/Requests/ParticipantPostRequest.cs,a\5\a56785f3c49705fb103b543fd1dc0fc2c6efaf6b
-S
-#IQueueBL/Interfaces/IUserService.cs,7\5\752f58339bc18a7a94044db788ef5c4de22c601f
 X
 (IQueueData/Interfaces/IUserRepository.cs,a\a\aa076490f55af9bdfb9422ab3370695efc7e6326
 L

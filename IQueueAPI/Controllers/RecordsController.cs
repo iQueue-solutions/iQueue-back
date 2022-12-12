@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using IQueueAPI.Requests;
 using IQueueBL.Interfaces;
 using IQueueBL.Models;
 using IQueueBL.Validation;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IQueueAPI.Controllers
@@ -51,6 +46,20 @@ namespace IQueueAPI.Controllers
                 var record = _mapper.Map<RecordModel>(value);
                 var id = await _recordService.AddAsync(record);
                 return Ok(id);
+            }
+            catch (QueueException e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPut("{id:guid}")]
+        public async Task<ActionResult> Update(Guid id, [FromBody] int newIndex)
+        {
+            try
+            {
+                var result = await _recordService.ExchangeRecord(id, newIndex);
+                return Ok(result ? "Updated" : "Request created");
             }
             catch (QueueException e)
             {
