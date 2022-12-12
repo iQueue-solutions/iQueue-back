@@ -12,29 +12,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
+    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="Add admin remove queue check.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/2c42d5b1-39f1-45bf-9ca7-93c817221f24.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/612b2ebb-2dd3-47a4-a24b-1f3199cc5f29.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/9bd2f6fa-3ddd-4cc0-8d36-7e15a6c6182b.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/FileContentIndex/dde83f3e-74c2-49f5-8678-c3f89d6bd645.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/IQueueApp/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.metadata.v5.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/iqueueapp.projects.v5.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/RecordsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - Web Deploy1.pubxml.user" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Properties/PublishProfiles/iqueue-001-site1 - Web Deploy1.pubxml.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Requests/CloseQueueRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Requests/OpenQueueRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Models/QueueModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Models/QueueModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IParticipantService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IParticipantService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/ParticipantService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/ParticipantService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/UserInQueueRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/UserInQueueRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +139,7 @@
       <workItem from="1669544221567" duration="698000" />
       <workItem from="1669668332592" duration="1766000" />
       <workItem from="1670838012944" duration="9669000" />
-      <workItem from="1670852421893" duration="833000" />
+      <workItem from="1670852421893" duration="3636000" />
     </task>
     <task id="LOCAL-00001" summary="Update Queue. Update POST.">
       <created>1666870163357</created>
@@ -225,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670849645139</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add admin remove queue check.">
+      <created>1670853778661</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670853778661</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +249,7 @@
     <MESSAGE value="Add authorization attributes." />
     <MESSAGE value="Change token signing credentials." />
     <MESSAGE value="Add domain limitation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add domain limitation." />
+    <MESSAGE value="Add admin remove queue check." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add admin remove queue check." />
   </component>
 </project>

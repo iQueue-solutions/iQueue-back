@@ -43,7 +43,10 @@ public class UserInQueueRepository : IUserInQueueRepository
 
     public async Task<UserInQueue> GetByIdAsync(Guid id)
     {
-        return await _queueDbContext.UserQueueCollection.FirstOrDefaultAsync(x => x.Id == id);
+        return await _queueDbContext
+            .UserQueueCollection
+            .Include(x => x.Queue)
+            .FirstOrDefaultAsync(x => x.Id == id);
     }
        
 

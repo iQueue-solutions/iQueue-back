@@ -103,6 +103,20 @@ namespace IQueueAPI.Controllers
             }
         }
         
+        [HttpDelete("collection")]
+        public async Task<ActionResult> DeleteCollectionByAdmin([FromBody] ICollection<Guid> participants)
+        {
+            try
+            {
+                await _participantService.DeleteParticipantsAsync(participants, UserId);
+                return NoContent();
+            }
+            catch (QueueException e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+        
         #region Check if nessessary
         // [HttpPost("{id:guid}/add-participants")]
         // public async Task<ActionResult> AddUsersInQueue(Guid id, [FromBody] IEnumerable<Guid> usersIds)

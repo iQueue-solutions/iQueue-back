@@ -17,6 +17,31 @@ namespace IQueueBL.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
+
+        public async Task<IEnumerable<RecordModel>> GetAllAsync()
+        {
+            var records = await _unitOfWork.RecordRepository.GetAllAsync();
+            return _mapper.Map<IEnumerable<RecordModel>>(records);
+        }
+
+        public async Task<RecordModel> GetByIdAsync(Guid id)
+        {
+            var record = await _unitOfWork.RecordRepository.GetByIdAsync(id);
+            return _mapper.Map<RecordModel>(record);
+        }
+
+        
+        public async Task UpdateAsync(RecordModel model)
+        {
+            await ValidateRecord(model);
+
+            var record = _mapper.Map<Record>(model);
+
+            _unitOfWork.RecordRepository.Update(record);
+            await _unitOfWork.SaveAsync();
+        }
+        
+        
         public async Task<Guid> AddAsync(RecordModel model)
         {
             await ValidateRecord(model);
@@ -40,41 +65,11 @@ namespace IQueueBL.Services
             await _unitOfWork.SaveAsync();
         }
 
-        public async Task<IEnumerable<RecordModel>> GetAllAsync()
-        {
-            var records = await _unitOfWork.RecordRepository.GetAllAsync();
-            return _mapper.Map<IEnumerable<RecordModel>>(records);
-        }
-
-        public async Task<RecordModel> GetByIdAsync(Guid id)
-        {
-            var record = await _unitOfWork.RecordRepository.GetByIdAsync(id);
-            return _mapper.Map<RecordModel>(record);
-        }
-
-        public async Task UpdateAsync(RecordModel model)
-        {
-            await ValidateRecord(model);
-
-            var record = _mapper.Map<Record>(model);
-
-            _unitOfWork.RecordRepository.Update(record);
-            await _unitOfWork.SaveAsync();
-        }
 
 
         private async Task ValidateRecord(RecordModel model)
         {
-            if (string.IsNullOrEmpty(model.LabNumber))
-            {
-                throw new QueueException("LabNumber can't be null value.");
-            }
-            if (string.IsNullOrEmpty(model.Index.ToString()))
-            {
-                throw new QueueException("Index can't be null value.");
-            }
-
-            if (model.Index <= 0)
+            if (model.Index < 0)
             {
                 throw new QueueException("Index must be a positive value.");
             }

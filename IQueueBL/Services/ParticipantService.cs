@@ -56,25 +56,20 @@ namespace IQueueBL.Services
 
         public async Task DeleteAsync(Guid modelId)
         {
-            if (await GetByIdAsync(modelId) == null)
-            {
-                throw new ParticipantException("User wasn't found");
-            }
-
             await _unitOfWork.UserInQueueRepository.DeleteByIdAsync(modelId);
             await _unitOfWork.SaveAsync();
         }
 
-        public async Task DeleteUsersFromQueueAsync(Guid queueId, IEnumerable<Guid> usersIds)
+        public async Task DeleteParticipantsAsync(IEnumerable<Guid> participants, Guid adminId)
         {
-            foreach (var userId in usersIds)
+            foreach (var participantId in participants)
             {
-                var userInQueue = (await _unitOfWork.UserInQueueRepository.GetAllAsync())
-                    .FirstOrDefault(x => x.QueueId == queueId && x.UserId == userId);
-
-                if (userInQueue != null) await _unitOfWork.UserInQueueRepository.DeleteByIdAsync(userInQueue.Id);
+                var participant = await _unitOfWork.UserInQueueRepository.GetByIdAsync(participantId);
+                if (participant != null && participant.Queue?.AdminId == adminId)
+                {
+                    await DeleteAsync(participantId);
+                }
             }
-            await _unitOfWork.SaveAsync();
         }
 
         public async Task<IEnumerable<ParticipantModel>> GetAllAsync()

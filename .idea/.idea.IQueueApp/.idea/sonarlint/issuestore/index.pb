@@ -3,12 +3,6 @@ S
 #IQueueBL/Models/ParticipantModel.cs,5\0\50d9c9998cfb67c4f48c9cedfd5f38c4967ac248
 \
 ,IQueueAPI/Requests/ParticipantPostRequest.cs,a\5\a56785f3c49705fb103b543fd1dc0fc2c6efaf6b
-M
-IQueueBL/Models/ErrorModel.cs,e\9\e9d3fe2c77a3f08def591e4851ee1121a670bce3
-Z
-*IQueueBL/Interfaces/IParticipantService.cs,5\5\5510b8e3c6b8a42594084e2400cd45b174e5988c
-W
-'IQueueBL/Services/ParticipantService.cs,a\e\aea39a45113130427a45d2638ba0cdb7439a6598
 H
 IQueueData/UnitOfWork.cs,d\9\d9e4540d7a193e5eef31a0be6894e4a62c6b9bd6
 T
@@ -39,8 +33,6 @@ Z
 *IQueueAPI/Controllers/BaseApiController.cs,8\d\8dfa002193a0e7c507cb756eb322f52de9329e42
 d
 4IQueueData/Migrations/QueueDbContextModelSnapshot.cs,1\3\13c467724b6338bade5d8786d47daa26a8c5f169
-D
-IQueueAPI/Program.cs,9\2\929bb5fc3d4478079a162265d27d6d669c0e3f7d
 J
 IQueueAPI/appsettings.json,a\a\aae708f18222f8950482aebb0fd88cb00872a503
 J

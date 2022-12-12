@@ -6,7 +6,7 @@ namespace IQueueData.Interfaces
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
 
-        Task<TEntity> GetByIdAsync(Guid id);
+        Task<TEntity?> GetByIdAsync(Guid id);
 
         Task<Guid> AddAsync(TEntity entity);
 
