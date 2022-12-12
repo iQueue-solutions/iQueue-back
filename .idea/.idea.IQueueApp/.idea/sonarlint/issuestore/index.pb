@@ -3,12 +3,6 @@ S
 #IQueueBL/Models/ParticipantModel.cs,5\0\50d9c9998cfb67c4f48c9cedfd5f38c4967ac248
 \
 ,IQueueAPI/Requests/ParticipantPostRequest.cs,a\5\a56785f3c49705fb103b543fd1dc0fc2c6efaf6b
-H
-IQueueData/UnitOfWork.cs,d\9\d9e4540d7a193e5eef31a0be6894e4a62c6b9bd6
-T
-$IQueueData/Interfaces/IUnitOfWork.cs,a\c\acb327d338bd85088367469762080a101b241aea
-K
-IQueueData/Entities/User.cs,f\c\fc0b3d282cd1540d12a68fa83da01664315c5e7d
 S
 #IQueueBL/Interfaces/IUserService.cs,7\5\752f58339bc18a7a94044db788ef5c4de22c601f
 X
@@ -17,8 +11,6 @@ L
 IQueueBL/Models/UserModel.cs,b\c\bc83125384897074459a89f46dfa81d1fdc7f83b
 R
 "IQueueBL/Helpers/PasswordHelper.cs,c\7\c7f82323697bcf24b5c26012b63148995da225a8
-L
-IQueueData/QueueDbContext.cs,4\0\40ebca85fe4e24ec5f4d729bf8e9c38af7098868
 Y
 )IQueueData/Repositories/UserRepository.cs,b\c\bc10473a195837c0f6ebb746bf02a5a4523c7381
 \
@@ -31,10 +23,6 @@ V
 &IQueueAPI/Requests/UserLoginRequest.cs,a\a\aaa074accd84f51e891cbfc3075f897b1d620e20
 Z
 *IQueueAPI/Controllers/BaseApiController.cs,8\d\8dfa002193a0e7c507cb756eb322f52de9329e42
-d
-4IQueueData/Migrations/QueueDbContextModelSnapshot.cs,1\3\13c467724b6338bade5d8786d47daa26a8c5f169
-J
-IQueueAPI/appsettings.json,a\a\aae708f18222f8950482aebb0fd88cb00872a503
 J
 IQueueAPI/IQueueAPI.csproj,1\e\1e437d37347237800632617b6a7314672e43dd80
 O

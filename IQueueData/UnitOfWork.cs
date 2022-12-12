@@ -12,6 +12,8 @@ namespace IQueueData
         public IUserGroupRepository UserGroupRepository { get; }
         public IUserRepository UserRepository { get; }
         public IUserInQueueRepository UserInQueueRepository { get; }
+        
+        public ISwitchRequestRepository SwitchRequestRepository { get; }
 
         public UnitOfWork(QueueDbContext context,
             IGroupRepository groupRepository,
@@ -19,7 +21,7 @@ namespace IQueueData
             IRecordRepository recordRepository,
             IUserGroupRepository userGroupRepository,
             IUserRepository userRepository, 
-            IUserInQueueRepository userInQueueRepository)
+            IUserInQueueRepository userInQueueRepository, ISwitchRequestRepository switchRequestRepository)
         {
             _context = context;
             GroupRepository = groupRepository;
@@ -28,6 +30,7 @@ namespace IQueueData
             UserGroupRepository = userGroupRepository;
             UserRepository = userRepository;
             UserInQueueRepository = userInQueueRepository;
+            SwitchRequestRepository = switchRequestRepository;
         }
         
         public async Task SaveAsync()

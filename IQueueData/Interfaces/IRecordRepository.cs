@@ -1,10 +1,8 @@
 ﻿using IQueueData.Entities;
 
-namespace IQueueData.Interfaces
+namespace IQueueData.Interfaces;
+
+public interface IRecordRepository : IRepository<Record>
 {
-    public interface IRecordRepository : IRepository<Record>
-    {
-        public Task<IEnumerable<Record>> GetAllWithDetailsAsync();
-        public void ExchangePlaces(Guid ParticipantId1, Guid ParticipantId2);
-    }
+    public Task<IEnumerable<Record>> GetAllWithDetailsAsync(); 
 }

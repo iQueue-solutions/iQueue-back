@@ -55,6 +55,7 @@ builder.Services.AddScoped<IRecordRepository, RecordRepository>();
 builder.Services.AddScoped<IUserGroupRepository, UserGroupRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserInQueueRepository, UserInQueueRepository>();
+builder.Services.AddScoped<ISwitchRequestRepository, SwitchRequestRepository>();
 
 builder.Services.AddScoped<IQueueService, QueueService>();
 builder.Services.AddScoped<IRecordService, RecordService>();

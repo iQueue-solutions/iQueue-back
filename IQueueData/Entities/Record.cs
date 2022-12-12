@@ -25,5 +25,10 @@ namespace IQueueData.Entities
         /// Index number in queue.
         /// </summary>
         public int Index { get; set; }
+        
+        
+        public ICollection<SwitchRequest>? SwitchRequests { get; set; }
+        
+        public ICollection<SwitchRequest>? MentionedInRequests { get; set; }
     }
 }

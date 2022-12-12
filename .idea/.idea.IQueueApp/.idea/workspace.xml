@@ -12,10 +12,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="Update record validation.">
-      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/ParticipantsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IParticipantService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IParticipantService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/ParticipantService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/ParticipantService.cs" afterDir="false" />
+    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/IQueueData/Entities/SwitchRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IQueueData/Interfaces/ISwitchRequestRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IQueueData/Repositories/SwitchRequestRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/RecordService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Entities/Record.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Entities/Record.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IRecordRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IRecordRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Interfaces/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Interfaces/IUnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221016173446_InitialTestMigration.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221016173446_InitialTestMigration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221018095028_FirstReal.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221018095028_FirstReal.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221021134829_NullableAdmin.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221021134829_NullableAdmin.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221027110754_UpdateQueue.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221027110754_UpdateQueue.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221027120511_UpdateRecordLabNumber.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221027120511_UpdateRecordLabNumber.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221030110354_UserInQueue.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/20221030110354_UserInQueue.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Migrations/QueueDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/QueueDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/QueueDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/Repositories/RecordRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/Repositories/RecordRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueData/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueData/UnitOfWork.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,24 +285,5 @@
     <MESSAGE value="Add delete participants with checking admin." />
     <MESSAGE value="Update record validation." />
     <option name="LAST_COMMIT_MESSAGE" value="Update record validation." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/IQueueBL/Services/RecordService.cs</url>
-          <line>71</line>
-          <properties documentPath="D:\NURE\5semestr\AVPZ\iQueue-back\IQueueBL\Services\RecordService.cs" initialLine="71" containingFunctionPresentation="method 'ValidateRecord'">
-            <startOffsets>
-              <option value="1981" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2001" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

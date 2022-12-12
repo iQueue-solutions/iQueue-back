@@ -14,5 +14,7 @@ public interface IUnitOfWork
     
     public IUserInQueueRepository UserInQueueRepository { get; }
     
+    public ISwitchRequestRepository SwitchRequestRepository { get; }
+    
     Task SaveAsync();
 }
