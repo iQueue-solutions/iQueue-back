@@ -103,12 +103,12 @@ namespace IQueueAPI.Controllers
             }
         }
         
-        [HttpDelete("collection")]
-        public async Task<ActionResult> DeleteCollectionByAdmin([FromBody] ICollection<Guid> participants)
+        [HttpDelete("admin")]
+        public async Task<ActionResult> DeleteByAdmin(Guid participantId)
         {
             try
             {
-                await _participantService.DeleteParticipantsAsync(participants, UserId);
+                await _participantService.DeleteParticipantsAsync(participantId, UserId);
                 return NoContent();
             }
             catch (QueueException e)

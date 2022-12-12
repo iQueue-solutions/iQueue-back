@@ -60,15 +60,12 @@ namespace IQueueBL.Services
             await _unitOfWork.SaveAsync();
         }
 
-        public async Task DeleteParticipantsAsync(IEnumerable<Guid> participants, Guid adminId)
+        public async Task DeleteParticipantsAsync(Guid participantId, Guid adminId)
         {
-            foreach (var participantId in participants)
+            var participant = await _unitOfWork.UserInQueueRepository.GetByIdAsync(participantId);
+            if (participant != null && participant.Queue?.AdminId == adminId)
             {
-                var participant = await _unitOfWork.UserInQueueRepository.GetByIdAsync(participantId);
-                if (participant != null && participant.Queue?.AdminId == adminId)
-                {
-                    await DeleteAsync(participantId);
-                }
+                await DeleteAsync(participantId);
             }
         }
 
