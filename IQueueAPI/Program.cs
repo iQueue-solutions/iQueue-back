@@ -20,8 +20,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(config =>
     {
-        config.RespectBrowserAcceptHeader = true;
-        config.ReturnHttpNotAcceptable = true;
+        config.RespectBrowserAcceptHeader = false;
+        config.ReturnHttpNotAcceptable = false;
     })
     .AddNewtonsoftJson(options =>
     {
@@ -36,9 +36,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //services cors
-builder.Services.AddCors(p => p.AddPolicy("policyforall", b =>
+builder.Services.AddCors(p => p.AddPolicy("CorsPolicy", b =>
 {
-    b.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+    b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
 }));
 
 var mapperConfig = new MapperConfiguration(mc =>

@@ -99,7 +99,7 @@ namespace IQueueBL.Services
             }
 
             queue.OpenTime = DateTime.Now;
-            queue.CloseTime = DateTime.Now + TimeSpan.FromDays(7);
+            queue.CloseTime = DateTime.Now + TimeSpan.FromDays(28);
             queue.IsOpen = true;
             await _unitOfWork.SaveAsync();
         }
