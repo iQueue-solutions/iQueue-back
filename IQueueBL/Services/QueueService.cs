@@ -32,7 +32,7 @@ public class QueueService : IQueueService
     {
         if (await GetByIdAsync(modelId) == null)
         {
-            throw new QueueException("User wasn't found");
+            throw new QueueException("Queue not found");
         }
 
         await _unitOfWork.QueueRepository.DeleteByIdAsync(modelId);
@@ -62,12 +62,7 @@ public class QueueService : IQueueService
         await _unitOfWork.QueueRepository.DeleteByIdAsync(queueId);
         await _unitOfWork.SaveAsync();
     }
-
-    public async Task<IEnumerable<QueueModel>> GetAllWithParticipantsAsync()
-    {
-        var queues = await _unitOfWork.QueueRepository.GetAllWithDetailsAsync();
-        return _mapper.Map<IEnumerable<QueueModel>>(queues);
-    } 
+    
 
     public async Task<QueueModel> GetByIdAsync(Guid id)
     {
@@ -97,9 +92,7 @@ public class QueueService : IQueueService
         {
             throw new QueueException("Not admin of queue.");
         }
-
-        queue.OpenTime = DateTime.Now;
-        queue.CloseTime = DateTime.Now + TimeSpan.FromDays(28);
+        
         queue.IsOpen = true;
         await _unitOfWork.SaveAsync();
     }
@@ -116,8 +109,7 @@ public class QueueService : IQueueService
         {
             throw new QueueException("Not admin of queue.");
         }
-            
-        queue.CloseTime = DateTime.Now;
+        
         queue.IsOpen = false;
         await _unitOfWork.SaveAsync();
     }

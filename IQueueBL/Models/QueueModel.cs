@@ -36,6 +36,11 @@ public class QueueModel
     public DateTime? CloseTime { get; set; }
     
     /// <summary>
+    /// Time in minutes of lab defense.
+    /// </summary>
+    public int? LabInterval { get; set; }
+    
+    /// <summary>
     /// Queue open status.
     /// </summary>
     public bool IsOpen { get; set; }

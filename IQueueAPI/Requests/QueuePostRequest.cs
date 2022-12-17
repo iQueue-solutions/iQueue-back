@@ -26,6 +26,11 @@ public class QueuePostRequest
     /// Queue open status.
     /// </summary>
     public bool IsOpen { get; set; }
+    
+    /// <summary>
+    /// Time in minutes of lab defense.
+    /// </summary>
+    public int? LabInterval { get; set; }
 
     /// <summary>
     /// Maximum users in queue.

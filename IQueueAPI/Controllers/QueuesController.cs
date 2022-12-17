@@ -27,7 +27,7 @@ public class QueuesController : BaseApiController
     [HttpGet]
     public async Task<ActionResult<IEnumerable<QueueModel>>> Get()
     {
-        return Ok(await _queueService.GetAllWithParticipantsAsync());
+        return Ok(await _queueService.GetAllAsync());
     }
         
     // GET: api/Queues/3bb3e74d-15f8-4efa-bf89-ef5390f9927b

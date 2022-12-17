@@ -30,6 +30,12 @@ namespace IQueueData.Entities
         /// Time of Queue closing.
         /// </summary>
         public DateTime? CloseTime { get; set; }
+        
+        
+        /// <summary>
+        /// Time in minutes of lab defense.
+        /// </summary>
+        public int? LabInterval { get; set; }
 
         /// <summary>
         /// Queue open status.

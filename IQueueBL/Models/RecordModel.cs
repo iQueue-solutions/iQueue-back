@@ -36,4 +36,14 @@ public class RecordModel
     /// </summary>
     public int Index { get; set; }
     
+    /// <summary>
+    /// Start of defense.
+    /// </summary>
+    public DateTime? StartTime { get; set; }
+        
+    /// <summary>
+    /// Finish of defense.
+    /// </summary>
+    public DateTime? FinishTime { get; set; }
+    
 }
