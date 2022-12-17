@@ -15,8 +15,12 @@
     <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/QueuesController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IQueueAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IQueueService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/ParticipantService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/ParticipantService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +65,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Azure - Publish Web App.Publish IQueueAPI to Azure">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Local">
     <configuration name="Publish IQueueAPI to Azure" type="AzureDotNetWebAppPublish" factoryName="Azure Web App">
       <option name="AZURE_WEB_APP_PROJECT" value="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj" />
       <option name="AZURE_WEB_APP_SUBSCRIPTION_ID" value="" />
@@ -176,6 +180,9 @@
       <workItem from="1670852421893" duration="6264000" />
       <workItem from="1671030180614" duration="2486000" />
       <workItem from="1671090154854" duration="77000" />
+      <workItem from="1671268945029" duration="1159000" />
+      <workItem from="1671270196245" duration="560000" />
+      <workItem from="1671276781813" duration="1177000" />
     </task>
     <task id="LOCAL-00001" summary="Update Queue. Update POST.">
       <created>1666870163357</created>
@@ -296,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671030269559</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Migrate to Sql Azure database.">
+      <created>1671269047359</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1671269047359</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,25 +348,7 @@
     <MESSAGE value="Add SwitchRequestService." />
     <MESSAGE value="Update get queue get records." />
     <MESSAGE value="Fix cors policy." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix cors policy." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/IQueueBL/Services/RecordService.cs</url>
-          <line>35</line>
-          <properties documentPath="D:\NURE\5semestr\AVPZ\iQueue-back\IQueueBL\Services\RecordService.cs" initialLine="35" containingFunctionPresentation="method 'UpdateAsync'">
-            <startOffsets>
-              <option value="930" />
-            </startOffsets>
-            <endOffsets>
-              <option value="958" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Migrate to Sql Azure database." />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrate to Sql Azure database." />
   </component>
 </project>

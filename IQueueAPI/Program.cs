@@ -28,7 +28,7 @@ builder.Services.AddControllers(config =>
         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
     });
 
-var connStr = builder.Configuration.GetConnectionString("AzureSqlDb");
+var connStr = builder.Configuration.GetConnectionString("LocalSqlDb");
 builder.Services.AddDbContext<QueueDbContext>(options => options.UseSqlServer(connStr));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

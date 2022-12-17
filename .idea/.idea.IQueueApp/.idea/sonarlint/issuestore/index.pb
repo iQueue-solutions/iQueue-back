@@ -25,9 +25,7 @@ J
 IQueueAPI/IQueueAPI.csproj,1\e\1e437d37347237800632617b6a7314672e43dd80
 O
 IQueueBL/Helpers/TokenHelper.cs,a\f\af1d0ed4d5fdb0bafe29edf9aff576c1df3c1b36
-Z
-*IQueueAPI/Controllers/RecordsController.cs,3\c\3c0d0451341d258ad995e3aa83d44e4f1aa56b86
 Y
 )IQueueBL/Services/SwitchRequestService.cs,9\e\9e4598ce8aa6e1bc2c4ea0d639a2e08783ac1375
-Q
-!IQueueBL/Services/QueueService.cs,f\8\f8b69a187d74788915cd739f878511737b727667
+L
+IQueueBL/Interfaces/ICrud.cs,7\3\73af3ef977405cb1a8bdf76a664b0b57fdbdefc9

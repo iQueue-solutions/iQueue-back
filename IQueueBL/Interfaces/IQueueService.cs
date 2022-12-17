@@ -13,4 +13,6 @@ public interface IQueueService : ICrud<QueueModel>
     public Task DeleteAsync(Guid queueId, Guid userId);
 
     public Task<IEnumerable<QueueModel>> GetAllWithParticipantsAsync();
+
+    public Task TransferAdminStatus(Guid queueId, Guid newAdminId, Guid userId);
 }
