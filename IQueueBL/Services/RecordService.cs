@@ -108,7 +108,43 @@ public class RecordService : IRecordService
         return false;
     }
 
+    public async Task<bool> AdminExchangeRecord(Guid recordId, int newIndex)
+    {
+        var record = await _unitOfWork.RecordRepository.GetByIdAsync(recordId);
+        if (record == null)
+        {
+            throw new QueueException("Record not found");
+        }
 
+        var records = await _unitOfWork.RecordRepository.GetAllWithDetailsAsync();
+        var newPlace = records.FirstOrDefault(x =>
+            x.UserQueue?.Queue?.Id == record.UserQueue?.Queue?.Id && x.Index == newIndex);
+
+        // Case when wanted place is empty
+        if (newPlace == null)
+        {
+            record.Index = newIndex;
+            await _unitOfWork.SaveAsync();
+            return true;
+        }
+
+        // Case when wanted place is self
+        if (newPlace.UserQueueId == record.UserQueueId)
+        {
+            newPlace.Index = record.Index;
+            record.Index = newIndex;
+            _unitOfWork.RecordRepository.Update(record);
+            _unitOfWork.RecordRepository.Update(newPlace);
+            return true;
+        }
+
+        // Case when wanted place is another
+        (record.Index, newPlace.Index) = (newPlace.Index, record.Index);
+        _unitOfWork.RecordRepository.Update(record);
+        _unitOfWork.RecordRepository.Update(newPlace);
+        await _unitOfWork.SaveAsync();
+        return false;
+    }
 
     private async Task ValidateRecord(RecordModel model)
     {
