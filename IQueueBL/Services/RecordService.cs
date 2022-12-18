@@ -93,6 +93,7 @@ public class RecordService : IRecordService
             record.Index = newIndex;
             _unitOfWork.RecordRepository.Update(record);
             _unitOfWork.RecordRepository.Update(newPlace);
+            await _unitOfWork.SaveAsync();
             return true;
         }
         
@@ -108,12 +109,18 @@ public class RecordService : IRecordService
         return false;
     }
 
-    public async Task<bool> AdminExchangeRecord(Guid recordId, int newIndex)
+    public async Task AdminExchangeRecord(Guid recordId, int newIndex, Guid userId)
     {
         var record = await _unitOfWork.RecordRepository.GetByIdAsync(recordId);
         if (record == null)
         {
             throw new QueueException("Record not found");
+        }
+
+        var queue = await _unitOfWork.QueueRepository.GetByIdAsync(record.UserQueue!.QueueId);
+        if (queue != null && queue.AdminId != userId)
+        {
+            throw new QueueException("Not admin of queue.");
         }
 
         var records = await _unitOfWork.RecordRepository.GetAllWithDetailsAsync();
@@ -125,17 +132,7 @@ public class RecordService : IRecordService
         {
             record.Index = newIndex;
             await _unitOfWork.SaveAsync();
-            return true;
-        }
-
-        // Case when wanted place is self
-        if (newPlace.UserQueueId == record.UserQueueId)
-        {
-            newPlace.Index = record.Index;
-            record.Index = newIndex;
-            _unitOfWork.RecordRepository.Update(record);
-            _unitOfWork.RecordRepository.Update(newPlace);
-            return true;
+            return;
         }
 
         // Case when wanted place is another
@@ -143,7 +140,6 @@ public class RecordService : IRecordService
         _unitOfWork.RecordRepository.Update(record);
         _unitOfWork.RecordRepository.Update(newPlace);
         await _unitOfWork.SaveAsync();
-        return false;
     }
 
     private async Task ValidateRecord(RecordModel model)

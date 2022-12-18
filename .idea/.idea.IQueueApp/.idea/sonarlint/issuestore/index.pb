@@ -29,3 +29,25 @@ Y
 )IQueueBL/Services/SwitchRequestService.cs,9\e\9e4598ce8aa6e1bc2c4ea0d639a2e08783ac1375
 L
 IQueueBL/Interfaces/ICrud.cs,7\3\73af3ef977405cb1a8bdf76a664b0b57fdbdefc9
+P
+ IQueueBL/Services/UserService.cs,a\9\a9da4d19759edf10bd20b8975f6d7cbdee211437
+D
+IQueueAPI/Program.cs,9\2\929bb5fc3d4478079a162265d27d6d669c0e3f7d
+J
+IQueueAPI/appsettings.json,a\a\aae708f18222f8950482aebb0fd88cb00872a503
+W
+'IQueueBL/Services/ParticipantService.cs,a\e\aea39a45113130427a45d2638ba0cdb7439a6598
+W
+'IQueueAPI/Requests/RecordPostRequest.cs,3\d\3d9e505d384d4bf3ec9798622ce1aaec1e819a04
+f
+6IQueueData/Migrations/20221217122742_QueueIntervals.cs,5\c\5ca2c04051e8aa264cbb9a41f5cf9236a3c7491b
+L
+IQueueData/Entities/Queue.cs,5\6\56929e64a21ceb4e402b2c4a4120bc86b48520ef
+M
+IQueueBL/Models/QueueModel.cs,e\9\e9d923142420d864bd124f9d4f664918c7f269ec
+V
+&IQueueAPI/Requests/QueuePostRequest.cs,8\f\8f28a48d21b2174f525c173911b692c41a3f9a31
+N
+IQueueBL/Models/RecordModel.cs,2\8\28f8da0e1cd226ab6b746dfe546ae5d2056b6cf9
+M
+IQueueData/Entities/Record.cs,a\6\a687c5e1dfa7cbf2e9303f7e32e5c711b84d15ba

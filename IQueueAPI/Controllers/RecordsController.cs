@@ -67,6 +67,20 @@ namespace IQueueAPI.Controllers
             }
         }
         
+        [HttpPut("{id:guid}/admin")]
+        public async Task<ActionResult> UpdateAdmin(Guid id, [FromBody] int newIndex)
+        {
+            try
+            {
+                await _recordService.AdminExchangeRecord(id, newIndex, UserId);
+                return Ok();
+            }
+            catch (QueueException e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+        
 
         // DELETE: api/Records/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
         [HttpDelete("{id:guid}")]
