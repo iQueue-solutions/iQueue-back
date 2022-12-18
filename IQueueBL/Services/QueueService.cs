@@ -22,6 +22,12 @@ public class QueueService : IQueueService
     {
         ValidateQueue(model);
 
+        if (model.LabInterval != null)
+        {
+            var allMinutes = model.CloseTime!.Value.Subtract(model.OpenTime!.Value).TotalMinutes;
+            model.MaxRecordNumber = (int) allMinutes / model.LabInterval;
+        }
+        
         var queue = _mapper.Map<Queue>(model);
         var id = await _unitOfWork.QueueRepository.AddAsync(queue);
         await _unitOfWork.SaveAsync();
@@ -72,6 +78,12 @@ public class QueueService : IQueueService
 
     public async Task UpdateAsync(QueueModel model)
     {
+        if (model.LabInterval != null)
+        {
+            var allMinutes = model.CloseTime!.Value.Subtract(model.OpenTime!.Value).TotalMinutes;
+            model.MaxRecordNumber = (int) allMinutes / model.LabInterval;
+        }
+        
         ValidateQueue(model);
 
         var queue = _mapper.Map<Queue>(model);
@@ -144,6 +156,15 @@ public class QueueService : IQueueService
             .Where(x => x.UserQueue?.QueueId == queue.Id)
             .ToList();
 
+        if (queue.LabInterval != null)
+        {
+            foreach (var record in queueRecords)
+            {
+                record.StartTime = queue.OpenTime!.Value.AddMinutes(record.Index * (double)queue.LabInterval);
+                record.FinishTime = queue.OpenTime!.Value.AddMinutes((record.Index + 1) * (double)queue.LabInterval);
+            }
+        }
+
         return _mapper.Map<ICollection<RecordModel>>(queueRecords);
     }
 
@@ -160,10 +181,6 @@ public class QueueService : IQueueService
         if (string.IsNullOrEmpty(model.AdminId.ToString()))
         {
             throw new QueueException("AdminId can't be null value.");
-        }
-        if (string.IsNullOrEmpty(model.Id.ToString()))
-        {
-            throw new QueueException("Id can't be null value.");
         }
         if (string.IsNullOrEmpty(model.IsOpen.ToString()))
         {
