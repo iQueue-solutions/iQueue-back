@@ -62,6 +62,22 @@ public class UsersController : BaseApiController
         }
     }
 
+
+    [HttpPut("{id:guid}/password")]
+    public async Task<ActionResult> UpdatePassword(Guid id, [FromBody] UserUpdatePasswordRequest request)
+    {
+        try
+        {
+            await _userService.UpdatePassword(id, request.CurrentPassword, request.NewPassword);
+            return Ok();
+        }
+        catch (QueueException e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+
     // DELETE: api/Users/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
     [HttpDelete("{id:guid}")]
     public async Task<ActionResult> Delete(Guid id)

@@ -6,95 +6,94 @@ using IQueueBL.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace IQueueAPI.Controllers
+namespace IQueueAPI.Controllers;
+
+[Authorize]
+[Route("api/records")]
+[ApiController]
+public class RecordsController : BaseApiController
 {
-    [Authorize]
-    [Route("api/records")]
-    [ApiController]
-    public class RecordsController : BaseApiController
+    private readonly IRecordService _recordService;
+    private readonly IMapper _mapper;
+
+    public RecordsController(IRecordService recordService, IMapper mapper)
     {
-        private readonly IRecordService _recordService;
-        private readonly IMapper _mapper;
-
-        public RecordsController(IRecordService recordService, IMapper mapper)
-        {
-            _recordService = recordService;
-            _mapper = mapper;
-        }
+        _recordService = recordService;
+        _mapper = mapper;
+    }
         
 
-        // GET: api/Records/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
-        [AllowAnonymous]
-        [HttpGet("{id:guid}")]
-        public async Task<ActionResult<RecordModel>> Get(Guid id)
+    // GET: api/Records/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
+    [AllowAnonymous]
+    [HttpGet("{id:guid}")]
+    public async Task<ActionResult<RecordModel>> Get(Guid id)
+    {
+        var record =  await _recordService.GetByIdAsync(id);
+        if (record == null)
         {
-            var record =  await _recordService.GetByIdAsync(id);
-            if (record == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(record);
+            return NotFound();
         }
 
-        // POST: api/Records
-        [HttpPost]
-        public async Task<ActionResult> Post([FromBody] RecordPostRequest value)
-        {
-            try
-            {
-                var record = _mapper.Map<RecordModel>(value);
-                var id = await _recordService.AddAsync(record);
-                return Ok(id);
-            }
-            catch (QueueException e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
+        return Ok(record);
+    }
 
-        [HttpPut("{id:guid}")]
-        public async Task<ActionResult> Update(Guid id, [FromBody] int newIndex)
+    // POST: api/Records
+    [HttpPost]
+    public async Task<ActionResult> Post([FromBody] RecordPostRequest value)
+    {
+        try
         {
-            try
-            {
-                var result = await _recordService.ExchangeRecord(id, newIndex);
-                return Ok(result ? "Updated" : "Request created");
-            }
-            catch (QueueException e)
-            {
-                return BadRequest(e.Message);
-            }
+            var record = _mapper.Map<RecordModel>(value);
+            var id = await _recordService.AddAsync(record);
+            return Ok(id);
         }
+        catch (QueueException e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpPut("{id:guid}")]
+    public async Task<ActionResult> Update(Guid id, [FromBody] int newIndex)
+    {
+        try
+        {
+            var result = await _recordService.ExchangeRecord(id, newIndex);
+            return Ok(result ? "Updated" : "Request created");
+        }
+        catch (QueueException e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
         
-        [HttpPut("{id:guid}/admin")]
-        public async Task<ActionResult> UpdateAdmin(Guid id, [FromBody] int newIndex)
+    [HttpPut("{id:guid}/admin")]
+    public async Task<ActionResult> UpdateAdmin(Guid id, [FromBody] int newIndex)
+    {
+        try
         {
-            try
-            {
-                await _recordService.AdminExchangeRecord(id, newIndex, UserId);
-                return Ok();
-            }
-            catch (QueueException e)
-            {
-                return BadRequest(e.Message);
-            }
+            await _recordService.AdminExchangeRecord(id, newIndex, UserId);
+            return Ok();
         }
+        catch (QueueException e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
         
 
-        // DELETE: api/Records/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
-        [HttpDelete("{id:guid}")]
-        public async Task<ActionResult> Delete(Guid id)
+    // DELETE: api/Records/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
+    [HttpDelete("{id:guid}")]
+    public async Task<ActionResult> Delete(Guid id)
+    {
+        try
         {
-            try
-            {
-                await _recordService.DeleteAsync(id);
-                return NoContent();
-            }
-            catch (QueueException e)
-            {
-                return BadRequest(e.Message);
-            }
+            await _recordService.DeleteAsync(id);
+            return NoContent();
+        }
+        catch (QueueException e)
+        {
+            return BadRequest(e.Message);
         }
     }
 }

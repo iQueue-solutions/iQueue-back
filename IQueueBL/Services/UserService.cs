@@ -72,6 +72,30 @@ public class UserService : IUserService
         return token;
     }
 
+
+    public async Task UpdatePassword(Guid userId, string currentPassword, string newPassword)
+    {
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+        if (user == null)
+        {
+            throw new QueueException("User not found");
+        }
+        
+        var verify = PasswordHelper.VerifyPasswordHash(currentPassword, 
+            Convert.FromBase64String(user.PasswordHash), 
+            Convert.FromBase64String(user.PasswordSalt));
+        if (!verify)
+        {
+            throw new QueueException("Not found in database.");
+        }
+        
+        PasswordHelper.CreatePasswordHash(newPassword, out byte[]  passwordHash, out byte[]  passwordSalt);
+
+        user.PasswordHash = Convert.ToBase64String(passwordHash);
+        user.PasswordSalt = Convert.ToBase64String(passwordSalt);
+        await _unitOfWork.SaveAsync();
+    }
+
     public async Task<IEnumerable<UserModel>> GetAllAsync()
     {
         var users = await _unitOfWork.UserRepository.GetAllWithDetailsAsync();
@@ -100,11 +124,17 @@ public class UserService : IUserService
     {
         ValidateUser(model);
 
-        var user = _mapper.Map<User>(model);
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(model.Id);
+        if (user == null)
+        {
+            throw new QueueException("User not found");
+        }
 
-        _unitOfWork.UserRepository.Update(user);
+        user.Email = model.Email;
+        user.FirstName = model.FirstName;
+        user.LastName = model.LastName;
+        
         await _unitOfWork.SaveAsync();
-
     }
 
     public async Task DeleteAsync(Guid modelId)    
@@ -132,10 +162,6 @@ public class UserService : IUserService
         if (string.IsNullOrEmpty(model.LastName))
         {
             throw new QueueException("LastName can't be null value.");
-        }
-        if (string.IsNullOrEmpty(model.Id.ToString()))
-        {
-            throw new QueueException("Id can't be null value.");
         }
     }
 }

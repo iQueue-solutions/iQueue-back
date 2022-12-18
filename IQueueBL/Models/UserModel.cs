@@ -24,9 +24,4 @@ public class UserModel
     /// Email of the user.
     /// </summary>
     public string Email { get; set; } = string.Empty;
-
-    /// <summary>
-    /// List of records of queue changes.
-    /// </summary>
-    public IList<Guid>? RecordsIds { get; set; }
 }

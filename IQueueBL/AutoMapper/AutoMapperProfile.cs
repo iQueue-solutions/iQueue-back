@@ -25,9 +25,8 @@ public class AutoMapperProfile : Profile
         CreateMap<UserInQueue, ParticipantModel>();
         
         CreateMap<ParticipantModel, UserInQueue>();
-        
-        CreateMap<User, UserModel>()
-            .ForMember(um => um.RecordsIds, u => u.MapFrom(x => x.UserInQueues.Select(r => r.Id)));
+
+        CreateMap<User, UserModel>();
 
         CreateMap<UserModel, User>();
 
