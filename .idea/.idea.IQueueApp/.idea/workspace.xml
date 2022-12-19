@@ -12,10 +12,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="Add update user.">
+    <list default="true" id="04c09292-7982-4936-ab41-d94c64f2a519" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IQueueApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/QueueService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Controllers/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IQueueBL/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IQueueBL/Services/UserService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +64,41 @@
   }
 }</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Local">
+    <configuration name="Publish IQueueAPI to Azure (1)" type="AzureDotNetWebAppPublish" factoryName="Azure Web App">
+      <option name="AZURE_WEB_APP_PROJECT" value="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj" />
+      <option name="AZURE_WEB_APP_SUBSCRIPTION_ID" value="" />
+      <option name="AZURE_WEB_APP_IS_CREATE_APP" value="0" />
+      <option name="AZURE_WEB_APP_ID" value="/subscriptions/2116da5d-005d-4123-a51f-480465c66709/resourceGroups/rg-221218134511/providers/Microsoft.Web/sites/iqueue-api-temp" />
+      <option name="AZURE_WEB_APP_NAME" value="" />
+      <option name="AZURE_WEB_APP_IS_CREATE_RESOURCE_GROUP" value="0" />
+      <option name="AZURE_WEB_APP_RESOURCE_GROUP_NAME" value="" />
+      <option name="AZURE_WEB_APP_OPERATING_SYSTEM" value="WINDOWS" />
+      <option name="AZURE_WEB_APP_IS_CREATE_APP_SERVICE_PLAN" value="0" />
+      <option name="AZURE_WEB_APP_SERVICE_PLAN_ID" value="/subscriptions/2116da5d-005d-4123-a51f-480465c66709/resourceGroups/rg-221218134318/providers/Microsoft.Web/serverfarms/appsp-221218134318" />
+      <option name="AZURE_WEB_APP_SERVICE_PLAN_NAME" value="" />
+      <option name="AZURE_WEB_APP_LOCATION" value="eastus" />
+      <option name="AZURE_WEB_APP_PRICING_TIER" value="" />
+      <option name="AZURE_WEB_APP_NET_FRAMEWORK" value="4.7" />
+      <option name="AZURE_WEB_APP_NET_CORE_RUNTIME" value="DOTNETCORE 2.1" />
+      <option name="AZURE_WEB_APP_IS_DEPLOY_TO_SLOT" value="0" />
+      <option name="AZURE_WEB_APP_SLOT_NAME" value="" />
+      <option name="AZURE_WEB_APP_OPEN_BROWSER_PUBLISH" value="0" />
+      <option name="AZURE_SQL_DATABASE_SUBSCRIPTION_ID" value="" />
+      <option name="AZURE_SQL_DATABASE_IS_ENABLED" value="1" />
+      <option name="AZURE_SQL_DATABASE_CONNECTION_STRING_NAME" value="ConnectionString" />
+      <option name="AZURE_SQL_DATABASE_IS_CREATE" value="0" />
+      <option name="AZURE_SQL_DATABASE_ID" value="/subscriptions/2116da5d-005d-4123-a51f-480465c66709/resourceGroups/DefaultResourceGroup-WEU/providers/Microsoft.Sql/servers/sql-server-221218134511/databases/sql_221218134318_db" />
+      <option name="AZURE_SQL_DATABASE_NAME" value="sql_221218134318_db" />
+      <option name="AZURE_SQL_DATABASE_IS_CREATE_RESOURCE_GROUP" value="0" />
+      <option name="AZURE_SQL_DATABASE_RESOURCE_GROUP_NAME" value="" />
+      <option name="AZURE_SQL_DATABASE_IS_CREATE_SQL_SERVER" value="0" />
+      <option name="AZURE_SQL_DATABASE_SQL_SERVER_ID" value="" />
+      <option name="AZURE_SQL_DATABASE_SQL_SERVER_NAME" value="" />
+      <option name="AZURE_SQL_DATABASE_SQL_SERVER_ADMIN_LOGIN" value="Admin123" />
+      <option name="AZURE_SQL_DATABASE_LOCATION" value="eastus" />
+      <option name="AZURE_SQL_DATABASE_COLLATION" value="SQL_Latin1_General_CP1_CI_AS" />
+      <method v="2" />
+    </configuration>
     <configuration name="Publish IQueueAPI to Azure" type="AzureDotNetWebAppPublish" factoryName="Azure Web App">
       <option name="AZURE_WEB_APP_PROJECT" value="$PROJECT_DIR$/IQueueAPI/IQueueAPI.csproj" />
       <option name="AZURE_WEB_APP_SUBSCRIPTION_ID" value="" />
@@ -71,7 +109,7 @@
       <option name="AZURE_WEB_APP_RESOURCE_GROUP_NAME" value="" />
       <option name="AZURE_WEB_APP_OPERATING_SYSTEM" value="WINDOWS" />
       <option name="AZURE_WEB_APP_IS_CREATE_APP_SERVICE_PLAN" value="0" />
-      <option name="AZURE_WEB_APP_SERVICE_PLAN_ID" value="" />
+      <option name="AZURE_WEB_APP_SERVICE_PLAN_ID" value="/subscriptions/ad451952-1bb2-44ac-a202-bc0faf10f1d7/resourceGroups/iqueue-rg/providers/Microsoft.Web/serverfarms/iqueue-sp" />
       <option name="AZURE_WEB_APP_SERVICE_PLAN_NAME" value="" />
       <option name="AZURE_WEB_APP_LOCATION" value="eastus" />
       <option name="AZURE_WEB_APP_PRICING_TIER" value="" />
@@ -142,6 +180,7 @@
     <list>
       <item itemvalue=".NET Executable.Unnamed" />
       <item itemvalue=".NET Launch Settings Profile.Local" />
+      <item itemvalue="Azure - Publish Web App.Publish IQueueAPI to Azure (1)" />
       <item itemvalue="Azure - Publish Web App.Publish IQueueAPI to Azure" />
       <item itemvalue="Publish to IIS.IQueueAPI: iqueue-001-site1 - FTP" />
       <item itemvalue="Publish to IIS.IQueueAPI: iqueue-001-site1 - FTP1" />
@@ -178,7 +217,9 @@
       <workItem from="1671268945029" duration="1159000" />
       <workItem from="1671270196245" duration="560000" />
       <workItem from="1671276781813" duration="4920000" />
-      <workItem from="1671354256460" duration="4931000" />
+      <workItem from="1671354256460" duration="5127000" />
+      <workItem from="1671363717505" duration="2583000" />
+      <workItem from="1671431254888" duration="2208000" />
     </task>
     <task id="LOCAL-00001" summary="Update Queue. Update POST.">
       <created>1666870163357</created>
@@ -334,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671356678501</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add time intervals to queue.">
+      <created>1671360515787</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1671360515787</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +425,7 @@
     <MESSAGE value="Add QueueInterval migration." />
     <MESSAGE value="Update admin record swap." />
     <MESSAGE value="Add update user." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add update user." />
+    <MESSAGE value="Add time intervals to queue." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add time intervals to queue." />
   </component>
 </project>

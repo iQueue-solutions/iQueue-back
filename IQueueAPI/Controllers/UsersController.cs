@@ -43,7 +43,20 @@ public class UsersController : BaseApiController
 
         return Ok(user);
     }
-        
+
+
+    [AllowAnonymous]
+    [HttpGet("{id:guid}/records")]
+    public async Task<ActionResult> GetUserRecords(Guid id, [FromQuery] bool onlyUpcoming)
+    {
+        var records = onlyUpcoming
+            ? await _userService.UpcomingRecordsByUser(id)
+            : await _userService.RecordsByUser(id);
+
+        return Ok(records);
+    }
+
+
 
     // PUT: api/Users/3bb3e74d-15f8-4efa-bf89-ef5390f9927b
     [HttpPut("{id:guid}")]

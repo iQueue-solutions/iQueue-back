@@ -147,6 +147,32 @@ public class UserService : IUserService
         await _unitOfWork.UserRepository.DeleteByIdAsync(modelId);
         await _unitOfWork.SaveAsync();
     }
+
+    public async Task<IEnumerable<RecordModel>> RecordsByUser(Guid id)
+    {
+        var userRecords = (await _unitOfWork.RecordRepository.GetAllWithDetailsAsync())
+            .Where(x => x.UserQueue?.UserId == id)
+            .ToList();
+
+        userRecords = AddTimeIntervals(userRecords)
+            .OrderBy(x => x.StartTime)
+            .ToList();
+
+        return _mapper.Map<IEnumerable<RecordModel>>(userRecords);
+    }
+
+    public async Task<IEnumerable<RecordModel>> UpcomingRecordsByUser(Guid id)
+    {
+        var userRecords = (await _unitOfWork.RecordRepository.GetAllWithDetailsAsync())
+            .Where(x => x.UserQueue?.UserId == id && x.UserQueue.Queue?.OpenTime > DateTime.Now)
+            .ToList();
+        
+        userRecords = AddTimeIntervals(userRecords)
+            .OrderBy(x => x.StartTime)
+            .ToList();
+        
+        return _mapper.Map<IEnumerable<RecordModel>>(userRecords);
+    }
     
 
     private void ValidateUser(UserModel model)
@@ -163,5 +189,19 @@ public class UserService : IUserService
         {
             throw new QueueException("LastName can't be null value.");
         }
+    }
+
+
+    private IEnumerable<Record> AddTimeIntervals(IList<Record> userRecords)
+    {
+        foreach (var record in userRecords.Where(record => record.UserQueue?.Queue?.LabInterval != null))
+        {
+            record.StartTime = record.UserQueue?.Queue?.OpenTime!.Value
+                .AddMinutes(record.Index * (double)record.UserQueue.Queue.LabInterval!);
+            record.FinishTime = record.UserQueue?.Queue?.OpenTime!.Value
+                .AddMinutes((record.Index + 1) * (double)record.UserQueue.Queue.LabInterval!);
+        }
+
+        return userRecords;
     }
 }
